@@ -6,6 +6,30 @@ export const perfumes = [
     buyLink: "https://amzn.in/d/1SIyVwX"
   },
   {
+    name: "BENTLEY Men Transparent Silverlake Eau de Parfum - 100ml",
+    price: "6,225",
+    image: "https://m.media-amazon.com/images/I/51mGrFw6jdL._SX522_.jpg",
+    buyLink: "https://amzn.in/d/jhQmbrL"
+  },
+  {
+    name: "Al Haramain Amber Oud Eau De Parfum Spray | Arabian Perfume for Men & Women",
+    price: "6,999",
+    image: "https://m.media-amazon.com/images/I/51Dkv7sgXfL._SX522_.jpg",
+    buyLink: "https://amzn.in/d/8PoVBb9"
+  },
+  {
+    name: "Rue Broca Theoreme Pour Homme Eau De Parfum 90ml For Him | Monsoon + All Weather",
+    price: "1,930",
+    image: "https://m.media-amazon.com/images/I/31sxEVEJPVL._SX522_.jpg",
+    buyLink: "https://amzn.in/d/fwrtYvb"
+  },
+  {
+    name: "Lattafa Najdia Intense for Men Eau De Parfum Spray - 100ML",
+    price: "2,125",
+    image: "https://m.media-amazon.com/images/I/81v87Ee+V9L._SX522_.jpg",
+    buyLink: "https://amzn.in/d/jeziw0F"
+  },
+  {
     name: "Rasasi Hawas Eau De Parfum 100ml For Men",
     price: "3,349",
     image: "https://m.media-amazon.com/images/I/61AaKL1AhVL._SX522_.jpg",
@@ -47,18 +71,7 @@ export const perfumes = [
     image: "https://m.media-amazon.com/images/I/61gWYHLpHsL._SX522_.jpg",
     buyLink: "https://www.fridaycharm.com/products/afnan-supremacy-not-only-intense-edp-100ml?variant=45142233809142"
   },
-  {
-    name: "BENTLEY Men Transparent Silverlake Eau de Parfum- 100ml",
-    price: "6,225",
-    image: "https://m.media-amazon.com/images/I/51mGrFw6jdL._SX522_.jpg",
-    buyLink: "https://amzn.in/d/jhQmbrL"
-  },
-  {
-    name: "Al Haramain Amber Oud Eau De Parfum Spray | Arabian Perfume for Men & Women",
-    price: "6,999",
-    image: "https://m.media-amazon.com/images/I/51Dkv7sgXfL._SX522_.jpg",
-    buyLink: "https://amzn.in/d/8PoVBb9"
-  }
+  
 ];
 
 export const attars = [
