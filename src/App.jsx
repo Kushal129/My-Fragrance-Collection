@@ -1,15 +1,24 @@
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
+
+import LoadingScreen from './components/LoadingScreen.jsx';
+import Home from './components/Home.jsx';
+import NotFound from './components/NotFound.jsx';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
   return (
     <Router>
-      <div className="min-h-screen bg-dark-950 text-gray-200">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
-      </div>
+      <Routes>
+        {isLoading && <Route path="/" element={<LoadingScreen onComplete={handleLoadingComplete} />} />}
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </Router>
   );
 }
