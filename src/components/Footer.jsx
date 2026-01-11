@@ -9,6 +9,10 @@ const Footer = () => {
           <p className="text-gray-200/80 text-base">
             A personal archive of fine fragrances
           </p>
+          <p className="text-gray-200/80 text-base">Lost in the scent trails</p>
+          <div className="text-gray-300">
+            <div className="mt-6 text-6xl mb-4">🌸</div>
+          </div>
         </div>
       </div>
     </footer>

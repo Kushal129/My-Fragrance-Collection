@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Search, Filter, Grid2x2 as Grid, List } from 'lucide-react';
 import { perfumes as initialPerfumes } from '../data.js';
-import PerfumeCard from './PerfumeCard.jsx';
+const PerfumeCard = lazy(() => import('./PerfumeCard.jsx'));
+
 import PerfumeModal from './PerfumeModal.jsx';
 import PerfumeForm from './PerfumeForm.jsx';
 import Footer from './Footer.jsx';
@@ -67,19 +68,30 @@ const Home = () => {
     setIsFormOpen(true);
   };
 
+  const PerfumeCard = lazy(() => import('./PerfumeCard.jsx'));
+
+  const CardSkeleton = () => (
+  <div className="animate-pulse bg-white border rounded-2xl p-4 space-y-4">
+    <div className="aspect-square bg-gray-300 rounded-xl" />
+    <div className="h-4 bg-gray-300 rounded w-3/4" />
+    <div className="h-3 bg-gray-300 rounded w-1/2" />
+  </div>
+);
+
+
   return (
-    <div className={`min-h-screen bg-white transition-all duration-1000 ${
-      fadeIn ? 'opacity-100' : 'opacity-0'
-    }`}>
+    <div className={`min-h-screen bg-white transition-all duration-1000 ${fadeIn ? 'opacity-100' : 'opacity-0'
+      }`}>
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="bg-white border-b border-gray-200 cursor-default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-8">
             {/* Title */}
             <div className="text-center mb-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black mb-2 tracking-tight">
+              <a href="/"><h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black mb-2 tracking-tight">
                 Fragrance Collection by Kushal
               </h1>
+              </a>
               <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
                 Discover and curate my personal perfume library
               </p>
@@ -115,24 +127,22 @@ const Home = () => {
                 <div className="flex border border-gray-200 rounded-xl overflow-hidden">
                   <button
                     onClick={() => setViewMode('grid')}
-                    className={`p-3 transition-colors duration-300 ${
-                      viewMode === 'grid' ? 'bg-black text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
-                    }`}
+                    className={`p-3 transition-colors duration-300 ${viewMode === 'grid' ? 'bg-black text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
+                      }`}
                   >
                     <Grid className="w-5 h-5" />
                   </button>
                   <button
                     onClick={() => setViewMode('list')}
-                    className={`p-3 transition-colors duration-300 ${
-                      viewMode === 'list' ? 'bg-black text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
-                    }`}
+                    className={`p-3 transition-colors duration-300 ${viewMode === 'list' ? 'bg-black text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
+                      }`}
                   >
                     <List className="w-5 h-5" />
                   </button>
                 </div>
               </div>
             </div>
-            
+
             {/* Results Count */}
             <div className="text-center mt-4">
               <span className="text-gray-500 text-sm">
@@ -147,33 +157,32 @@ const Home = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {filteredPerfumes.length === 0 ? (
           <div className="text-center py-24">
-            <div className="text-8xl mb-6">🔍</div>
-            <h3 className="text-3xl font-light text-gray-900 mb-4">No fragrances found</h3>
+            <h3 className="text-3xl text-gray-900 mb-4 ">No fragrances found</h3>
             <p className="text-gray-600 text-lg">
               {searchQuery ? 'Try adjusting your search terms' : 'Start building your collection!'}
             </p>
           </div>
         ) : (
-          <div className={`${
-            viewMode === 'grid'
+          <div className={`${viewMode === 'grid'
               ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6'
               : 'space-y-4'
-          }`}>
+            }`}>
             {filteredPerfumes.map((perfume, index) => (
               <div
                 key={perfume.id}
-                className={`transform transition-all duration-700 ${
-                  fadeIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
+                className={`transform transition-all duration-700 ${fadeIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
                 style={{
                   transitionDelay: `${index * 100}ms`,
                 }}
               >
-                <PerfumeCard
-                  perfume={perfume}
-                  onView={handleView}
-                  viewMode={viewMode}
-                />
+                <Suspense fallback={<CardSkeleton />}>
+                  <PerfumeCard
+                    perfume={perfume}
+                    onView={handleView}
+                    viewMode={viewMode}
+                  />
+                </Suspense>
               </div>
             ))}
           </div>
