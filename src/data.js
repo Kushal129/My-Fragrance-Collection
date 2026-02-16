@@ -629,5 +629,95 @@ export const perfumes = [
       baseNotes: ["Amber", "Ambergris", "Musk", "Cypriol"]
     },
     description: "Exquisite extrait de parfum with rich tropical warmth."
-  }
+  },
+  {
+  id: "36",
+  name: "Lattafa Atlas",
+  price: "3825",
+  originalPrice: "3825",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://www.lattafaindia.com/cdn/shop/files/01_jpg.png?v=1769155192&width=913",
+  buyLink: "https://www.lattafaindia.com/products/atlas",
+  brand: "Lattafa",
+  volume: "55ml",
+  notes: {
+    topNotes: ["Salt", "Sea Notes", "Lemon"],
+    middleNotes: ["Iris", "Davana"],
+    baseNotes: ["Ambergris", "Sandalwood", "Oakmoss"]
+  },
+  description : "Fresh marine fragrance with salty sea accords balanced by iris and davana, settling into a warm ambergris and sandalwood base."
+},
+{
+  id: "37",
+  name: "Arabiyat Oud Al Layl Midnight",
+  price: "1239",
+  originalPrice: "1239",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://elixbloom.com/wp-content/uploads/2026/01/Oud-Al-Layl-Midnight-Edition-copy.webp",
+  buyLink: "https://fragstalk.in/product/arabiyat-oud-al-layl-midnight-100ml-edp/ , https://perfumepalace.in/collections/new-arrivals/products/arabiyat-oud-al-layl-midnight-edition-eau-de-parfum-100ml-for-man",
+  brand: "Arabiyat",
+  volume: "100ml",
+  notes: {
+    topNotes: ["Marine Notes", "Grapefruit", "Mandarin", "Rose", "Saffron"],
+    middleNotes: ["Bay Leaf", "Jasmine", "Amber", "Musk"],
+    baseNotes: ["Agarwood (Oud)", "Patchouli", "Guaiac Wood", "Oakmoss"]
+  },
+  description: "Bold and sensual oud fragrance blending marine freshness and citrus with floral amber depth, finishing on a rich woody oud base."
+},
+{
+  id: "38",
+  name: "Ajmal ASCEND",
+  price: "599",
+  originalPrice: "599",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://in.ajmal.com/cdn/shop/files/ASCEND_EDP_100ML_1.jpg",
+  buyLink: "https://in.ajmal.com/products/ascend-eau-de-parfum-perfume-100ml-for-unisex/",
+  brand: "Ajmal",
+  volume: "100ml",
+  notes: {
+    topNotes: ["Apple", "Grapefruit", "Marine Note"],
+    middleNotes: ["Orchid", "Rose", "Freesia", "Violet Leaves"],
+    baseNotes: ["Woody Notes", "Vanilla", "White Musk"]
+  },
+  description: "Fresh fruity-citrus opening with marine nuances, evolving into soft florals and settling into a smooth woody vanilla and white musk base."
+},
+{
+  id: "39",
+  name: "Calvin Klein Eternity Eau De Parfum",
+  price: "4185",
+  originalPrice: "4185",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://perfumegyaan.com/wp-content/uploads/2023/07/CK-Eternity-EDP-Box-600x600.jpg",
+  buyLink: "https://www.myntra.com/perfume/calvin+klein/calvin-klein-men-eternity-eau-de-parfum-50-ml/11494342/buy",
+  brand: "Calvin Klein",
+  volume: "50ml",
+  notes: {
+    topNotes: ["Lavender", "Mandarin Orange", "Bergamot", "Lemon"],
+    middleNotes: ["Sage", "Juniper Berries", "Basil", "Geranium", "Jasmine", "Coriander", "Lily-of-the-Valley"],
+    baseNotes: ["Sandalwood", "Musk", "Vetiver", "Brazilian Rosewood", "Amber"]
+  },
+  description: "Classic aromatic fougère fragrance opening with fresh citrus and lavender, layered with herbal florals, and settling into a warm woody-musky amber base."
+},
+{
+  id: "40",
+  name: "Lattafa Maahir Legacy",
+  price: "2500",
+  originalPrice: "2500",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://www.perfumenetwork.in/cdn/shop/files/perfume-97.png",
+  buyLink: "https://www.perfumenetwork.in/products/lattafa-maahir-legacy-eau-de-parfum-for-men , https://fragstalk.in/product/lattafa-maahir-legacy",
+  brand: "Lattafa",
+  volume: "100ml",
+  notes: {
+    topNotes: ["Lime", "Grapefruit", "Lavender", "Spearmint", "Pineapple"],
+    middleNotes: ["Juniper Berry", "Rosemary", "Olibanum Resinoid", "Geranium", "Black Pepper"],
+    baseNotes: ["Vetiver", "Cashmeran", "Ambrox", "Oak Moss", "Tonka Bean"]
+  },
+  description: "Fresh citrus and aromatic opening with minty brightness, evolving into spicy herbal accords and settling into a woody-ambery vetiver and tonka bean base."
+}
 ];
