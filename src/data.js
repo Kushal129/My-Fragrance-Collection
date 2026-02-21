@@ -719,5 +719,58 @@ export const perfumes = [
     baseNotes: ["Vetiver", "Cashmeran", "Ambrox", "Oak Moss", "Tonka Bean"]
   },
   description: "Fresh citrus and aromatic opening with minty brightness, evolving into spicy herbal accords and settling into a woody-ambery vetiver and tonka bean base."
+},
+{
+  id: "41",
+  name: "Jean Paul Gaultier Le Male Le Parfum",
+  price: "8423",
+  originalPrice: "8423",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://images-static.nykaa.com/media/catalog/product/8/6/865e51f8435415032278_1.jpg",
+  buyLink: "https://www.perfumenetwork.in/products/jean-paul-gaultier-le-male-le-parfum-eau-de-parfum-for-men-1 , https://perfumepalace.in/products/jean-paul-gaultier-le-male-eau-de-parfum-intense-125ml-for-men",
+  brand: "Jean Paul Gaultier",
+  volume: "125ml",
+  notes: {
+    topNotes: ["Cardamom"],
+    middleNotes: ["Lavender", "Iris"],
+    baseNotes: ["Vanilla", "Oriental Notes", "Woodsy Notes"]
+  },
+  description: "Warm and intense fragrance opening with spicy cardamom, transitioning into aromatic lavender and powdery iris, and settling into a rich vanilla and woody oriental base."
+},
+{
+  id: "42",
+  name: "Armaf Hunter Intense",
+  price: "1999",
+  originalPrice: "1999",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://armafperfume.com/cdn/shop/files/TCB_3905_1_1024x1024.jpg",
+  buyLink: "https://perfumepalace.in/collections/for-men/products/armaf-hunter-intense-eau-de-parfum-for-men-100ml , https://armafperfume.com/products/armaf_hunter_intense_eau_de_toilette_for_men_100ml",
+  brand: "Armaf",
+  volume: "100ml",
+  notes: {
+    topNotes: ["Bergamot", "Lemon", "Mandarin", "Cardamom"],
+    middleNotes: ["Geranium", "Lavender", "Rose", "Bay Pepper"],
+    baseNotes: ["Vetiver", "Cedar", "Musk", "Labdanum", "Patchouli"]
+  },
+  description: "Fresh citrus and spicy opening with aromatic florals at the heart, settling into a warm woody base of vetiver, cedar, and musky patchouli depth."
+},{
+  id: "43",
+  name: "Ajmal Wisal Dhahab",
+  price: "3200",
+  originalPrice: "3200",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://perfumepalace.in/cdn/shop/products/10_05bc1696-410c-4093-bc1c-fba7a4e43da8.jpg",
+  buyLink: "https://perfumepalace.in/collections/for-men/products/ajmal-wisal-dhahab-edp-50ml-unisex-perfume , https://in.ajmal.com/products/wisal-dhahab-eau-de-parfum-perfume-50ml-for-men/",
+  brand: "Ajmal",
+  volume: "50ml",
+  notes: {
+    topNotes: ["Grapefruit", "Mandarin Orange", "Bergamot"],
+    middleNotes: ["Floral Notes"],
+    baseNotes: ["Sandalwood", "Cedarwood", "Patchouli", "Musk"]
+  },
+  description: "Bright citrus opening with grapefruit and bergamot, followed by a soft floral heart, settling into a warm woody base of sandalwood, cedarwood, patchouli, and musk."
 }
 ];
