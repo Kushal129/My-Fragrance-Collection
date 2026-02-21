@@ -772,5 +772,23 @@ export const perfumes = [
     baseNotes: ["Sandalwood", "Cedarwood", "Patchouli", "Musk"]
   },
   description: "Bright citrus opening with grapefruit and bergamot, followed by a soft floral heart, settling into a warm woody base of sandalwood, cedarwood, patchouli, and musk."
+},
+{
+  id: "44",
+  name: "ZARA Blue Spirit",
+  price: "1080",
+  originalPrice: "1080",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://static.zara.net/assets/public/4657/ee47/5ace4d8c93cb/ea663ad35263/20210739999-e1/20210739999-e1.jpg",
+  buyLink: "https://www.zara.com/in/en/blue-spirit-edt-90-ml---3-04%C2%A0oz-p20210739.html",
+  brand: "ZARA",
+  volume: "90ml",
+  notes: {
+    topNotes: ["Mandarin Orange", "Tangerine"],
+    middleNotes: ["Ylang-Ylang"],
+    baseNotes: ["Amber"]
+  },
+  description: "Fresh citrus opening with mandarin and tangerine, evolving into a soft ylang-ylang heart and settling into a smooth amber base."
 }
 ];
