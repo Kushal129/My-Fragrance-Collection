@@ -790,5 +790,113 @@ export const perfumes = [
     baseNotes: ["Amber"]
   },
   description: "Fresh citrus opening with mandarin and tangerine, evolving into a soft ylang-ylang heart and settling into a smooth amber base."
+},
+{
+  id: "45",
+  name: "Davidoff Cool Water Intense",
+  price: "3899",
+  originalPrice: "3899",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://elixbloom.com/wp-content/uploads/2026/02/VIDOFF-COOL-WATER-INTENSE-125ML-EDP-copy.webp",
+  buyLink: "https://elixbloom.com/product/davidoff-cool-water-intense-125ml-edp-men/",
+  brand: "Davidoff",
+  volume: "125ml",
+  notes: {
+    topNotes: ["Green Mandarin"],
+    middleNotes: ["Coconut Nectar"],
+    baseNotes: ["Amber"]
+  },
+  description: "Modern fresh fragrance with a vibrant green mandarin opening, blended with creamy coconut nectar and settling into a warm amber base."
+},
+{
+  id: "46",
+  name: "Ajmal Silver Shade",
+  price: "1200",
+  originalPrice: "1200",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://in.ajmal.com/cdn/shop/files/SILVERSHADE_EDP_100ML_1.jpg",
+  buyLink: "https://in.ajmal.com/products/silver-shade-eau-de-parfum-perfume-100ml-for-men/",
+  brand: "Ajmal",
+  volume: "100ml",
+  notes: {
+    topNotes: ["Lime", "Bergamot", "Lemon", "Black Currant", "Violet Leaf", "Plum"],
+    middleNotes: ["Iris", "Rose", "Jasmine"],
+    baseNotes: ["White Musk", "Ambergris", "Cedar", "Sandalwood", "Civet", "Tonka Bean"]
+  },
+  description: "Bright citrus and fruity opening with green nuances, evolving into a floral heart of iris, rose, and jasmine, and settling into a rich musky woody base with ambergris and tonka bean."
+},
+{
+  id: "47",
+  name: "Davidoff Cool Water EDT",
+  price: "2949",
+  originalPrice: "2949",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://elixbloom.com/wp-content/uploads/2026/02/DAVIDOFF-COOL-WATER-125ML-EDT-copy.webp",
+  buyLink: "https://elixbloom.com/product/davidoff-cool-water-125ml-edt-men/",
+  brand: "Davidoff",
+  volume: "125ml",
+  notes: {
+    topNotes: ["Sea Water", "Lavender", "Mint", "Green Notes", "Rosemary", "Calone", "Coriander"],
+    middleNotes: ["Sandalwood", "Neroli", "Geranium", "Jasmine"],
+    baseNotes: ["Musk", "Oakmoss", "Cedar", "Tobacco", "Ambergris"]
+  },
+  description: "Iconic aquatic fragrance with a fresh marine and minty opening, balanced by aromatic florals and settling into a classic musky woody base with ambergris."
+},
+{
+  id: "48",
+  name: "Fragrance World Aqua De Classic Profumo Eau De Parfum",
+  price: "1589",
+  originalPrice: "1589",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://perfumepalace.in/cdn/shop/files/51.png",
+  buyLink: "https://perfumepalace.in/products/fragrance-world-aqua-de-classic-profumo-eau-de-parfum-80ml-for-men , https://elixbloom.com/product/fragrance-world-aqua-de-classic-profumo-black-80ml-edp-men/",
+  brand: "Fragrance World",
+  volume: "80ml",
+  notes: {
+    topNotes: ["Mandarin", "Orange", "Bergamot", "Lemon", "Lime", "Jasmine", "Neroli"],
+    middleNotes: ["Peach", "Sea Notes", "Nutmeg", "Rosemary", "Hyacinth", "Freesia", "Mignonette", "Coriander", "Jasmine", "Calone", "Cyclamen", "Rose"],
+    baseNotes: ["Patchouli", "Oakmoss", "Cedar", "Amber", "White Musk"]
+  },
+  description: "Fresh citrus and floral opening with aquatic nuances, evolving into a complex aromatic and marine heart, and settling into a smooth woody-musky base with patchouli and amber."
+},
+{
+  id: "49",
+  name: "Lattafa Fakhar EDP",
+  price: "2249",
+  originalPrice: "2249",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://elixbloom.com/wp-content/uploads/2025/04/Fakhar-men-edp-100ml-.webp",
+  buyLink: "https://elixbloom.com/product/lattafa-fakhar-100ml-edp-men/ , https://www.lattafaindia.com/products/fakhar-lattafa-man",
+  brand: "Lattafa",
+  volume: "100ml",
+  notes: {
+    topNotes: ["Apple", "Bergamot", "Ginger"],
+    middleNotes: ["Lavender", "Sage", "Juniper Berries", "Geranium"],
+    baseNotes: ["Tonka Bean", "Cedar", "Amberwood", "Vetiver"]
+  },
+  description : "Fresh fruity-spicy opening with apple and ginger, blended with aromatic lavender and sage, settling into a warm woody base of tonka bean, amberwood, and vetiver."
+},
+{
+  id: "50",
+  name: "Nautica Voyage EDT",
+  price: "2049",
+  originalPrice: "2049",
+  currentPrice: '',
+  priceDate: '2026-02-16',
+  image: "https://elixbloom.com/wp-content/uploads/2026/02/NAUTICA-VOYAGE-EDT-100ML-copy.webp",
+  buyLink: "https://elixbloom.com/product/nautica-voyage-100ml-edt-men/ , https://www.myntra.com/perfume/nautica/nautica-men-voyage-eau-de-toilette-100-ml/1685401/buy",
+  brand: "Nautica",
+  volume: "100ml",
+  notes: {
+    topNotes: ["Green Leaves", "Apple"],
+    middleNotes: ["Lotus", "Mimosa"],
+    baseNotes: ["Musk", "Cedar", "Oakmoss", "Amber"]
+  },
+  description: "Fresh aquatic fragrance with crisp green apple and leafy notes, blended with soft florals and settling into a clean musky woody base."
 }
 ];
