@@ -2,74 +2,105 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
+@layer base {
+  :root {
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-top: env(safe-area-inset-top, 0px);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    color-scheme: dark;
+    background-color: #080808;
+  }
+
+  body {
+    font-family: "Outfit", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    background-color: #080808;
+    color: #e5e5e5;
+    min-height: 100vh;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
-  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-* {
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
-}
-
+/* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 6px;
-  border-radius: 0px;
+  width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: #080808;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    to bottom,
-    #161616,
-    #000000
-  );
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+  background: #262626;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    to bottom,
-    #2a2a2a,
-    #000000
-  );
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+  background: #525252;
 }
 
-
-::selection {
-  background-color: rgba(50, 50, 50, 0.153);
-  color: inherit;
+/* Safe area utilities */
+.pb-safe {
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 12px));
 }
 
-.icon-btn {
-  @apply p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition;
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
 }
 
-.badge {
-  @apply px-3 py-1 rounded-full bg-gray-100 text-sm;
+.bottom-safe {
+  bottom: env(safe-area-inset-bottom, 0px);
 }
 
-.btn-black {
-  @apply bg-black text-white py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-black/90 transition;
+/* Architectural Luxury Dark Card - GPU accelerated for smooth mobile scrolling */
+.vault-panel {
+  background-color: #101010;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.input {
-  @apply w-full p-3 border rounded-xl focus:outline-none focus:border-black;
+.vault-card-interactive {
+  background-color: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background-color 0.2s ease;
+  content-visibility: auto;
+  contain-intrinsic-size: 280px;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-.label {
-  @apply block text-sm text-gray-600 mb-1;
+.vault-card-interactive:active {
+  transform: scale(0.985) translateZ(0);
+  background-color: #141414;
+}
+
+@media (hover: hover) {
+  .vault-card-interactive:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+    background-color: #131313;
+  }
+}
+
+/* Monospace tracking utility */
+.label-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Hide scrollbar for horizontal pills on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
