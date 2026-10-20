@@ -2,9 +2,6 @@ import React from 'react';
 import { SearchIcon, LayoutGridIcon, ListIcon } from 'lucide-animated';
 
 const Navbar = ({
-  activeTab,
-  setActiveTab,
-  onOpenAddModal,
   searchQuery,
   setSearchQuery,
   viewMode,
@@ -13,21 +10,6 @@ const Navbar = ({
   isDetailView,
   onBackToCollection
 }) => {
-  const tabs = [
-    { id: 'vault', label: 'Collection' },
-    { id: 'sotd', label: 'Journal' },
-    { id: 'notes', label: 'Notes' },
-    { id: 'stats', label: 'Stats' }
-  ];
-
-  const handleTabClick = (tabId) => {
-    if (isDetailView && onBackToCollection) {
-      onBackToCollection();
-    }
-    setActiveTab(tabId);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <header className="sticky top-0 z-40 bg-[#080808]/95 backdrop-blur-md border-b border-white/[0.08] pt-safe">
       <div className="max-w-7xl mx-auto px-4 py-2.5 space-y-2.5">
@@ -35,7 +17,13 @@ const Navbar = ({
           {/* Brand Title */}
           <div className="flex items-center gap-2.5">
             <h1
-              onClick={() => handleTabClick('vault')}
+              onClick={() => {
+                if (isDetailView && onBackToCollection) {
+                  onBackToCollection();
+                } else {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               className="text-base sm:text-lg font-bold tracking-tight text-white cursor-pointer hover:text-neutral-200 transition"
             >
               Kushal's Collection
@@ -47,7 +35,7 @@ const Navbar = ({
 
           {/* Right Action Buttons */}
           <div className="flex items-center gap-1.5 sm:gap-2">
-            {activeTab === 'vault' && !isDetailView && (
+            {!isDetailView && (
               <button
                 onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
                 className="p-2 rounded-lg bg-[#141414] text-neutral-400 hover:text-white border border-white/5 active:scale-95 transition"
@@ -64,30 +52,8 @@ const Navbar = ({
           </div>
         </div>
 
-        {/* Top Navigation Tabs (Replaces Bottom Bar) */}
-        <div className="flex items-center justify-between gap-2 overflow-x-auto no-scrollbar pt-0.5">
-          <div className="flex items-center gap-1 bg-[#121212] p-1 rounded-xl border border-white/[0.06]">
-            {tabs.map((tab) => {
-              const isActive = activeTab === tab.id && !isDetailView;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => handleTabClick(tab.id)}
-                  className={`px-3 py-1 rounded-lg text-xs font-medium transition-all active:scale-95 whitespace-nowrap ${
-                    isActive
-                      ? 'bg-white text-black font-semibold shadow-sm'
-                      : 'text-neutral-400 hover:text-white'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Minimal Search Bar in Vault */}
-        {activeTab === 'vault' && !isDetailView && (
+        {/* Minimal Search Bar */}
+        {!isDetailView && (
           <div className="relative pt-0.5">
             <div className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500 pointer-events-none">
               <SearchIcon size={14} animateOnHover={false} />

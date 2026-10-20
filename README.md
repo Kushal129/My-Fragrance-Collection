@@ -6,11 +6,9 @@ A modern, luxury web application to curate, explore, and track a personal collec
 
 ### ✨ Highlights
 
-- **78+ Curated Fragrances**: Detailed profiles featuring Arabian attars, designer masterpieces, and niche extraits.
+- **82+ Curated Fragrances**: Detailed profiles featuring Arabian attars, designer masterpieces, and niche extraits.
 - **Olfactory Breakdown**: Complete note pyramids (Top, Heart, Base) and accord intensity distributions.
 - **Smart Filtering & Search**: Instant filtering by brand, fragrance category, notes, concentration, and season.
-- **Scent of the Day (SOTD)**: Daily fragrance wear tracking and personal rotation logs.
-- **Visual Analytics**: Interactive breakdowns of brand distributions, seasonal coverage, and collection value.
 - **Mobile-First Experience**: High-performance smooth scrolling with dark luxury aesthetics.
 
 ---

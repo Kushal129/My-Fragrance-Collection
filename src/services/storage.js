@@ -1,6 +1,6 @@
 import { perfumes as initialPerfumes } from '../data/perfumes.js';
 
-const PERFUMES_STORAGE_KEY = 'kushal_perfumes_vault_v16';
+const PERFUMES_STORAGE_KEY = 'kushal_perfumes_vault_v17';
 const FAVORITES_STORAGE_KEY = 'kushal_perfumes_favorites';
 const SOTD_STORAGE_KEY = 'kushal_perfumes_sotd_logs';
 const BOTTLE_LEVELS_KEY = 'kushal_perfumes_bottle_levels';

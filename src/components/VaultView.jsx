@@ -373,12 +373,22 @@ const VaultView = ({
           <p className="text-xs text-neutral-400 max-w-sm mx-auto">
             Adjust your active filter parameters or search query to find other perfumes.
           </p>
-          <button
-            onClick={handleResetFilters}
-            className="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-white rounded-lg text-xs font-semibold tracking-wide uppercase transition"
-          >
-            Clear Active Filters
-          </button>
+          <div className="pt-2 flex flex-col items-center gap-2">
+            <button
+              onClick={handleResetFilters}
+              className="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-white rounded-lg text-xs font-semibold tracking-wide uppercase transition active:scale-95"
+            >
+              Clear Active Filters
+            </button>
+            <button
+              onClick={() => {
+                window.location.hash = '#404';
+              }}
+              className="text-[11px] text-neutral-500 hover:text-neutral-300 underline underline-offset-4 transition"
+            >
+              Looking for an evaporated formulation? View 404
+            </button>
+          </div>
         </div>
       ) : (
         <>

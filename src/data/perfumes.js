@@ -752,6 +752,10 @@ export const perfumes = [
     "image": "https://cdn.shopify.com/s/files/1/0772/1448/2736/files/aventus_539206ed-6e69-4a84-9e97-2cdaf485f478.jpg?v=1780380292",
     "buyLinks": [
       {
+        "name": "Creed Official",
+        "url": "https://www.creedfragrance.com/p/aventus/12870008/"
+      },
+      {
         "name": "Belvish",
         "url": "https://belvish.com/products/creed-aventus-edp-for-men"
       },
@@ -8798,30 +8802,480 @@ export const perfumes = [
       "Evening / Night",
       "Special Occasion"
     ]
+  },
+  {
+    "id": "85",
+    "name": "Lynked Freedom",
+    "brand": "Afnan",
+    "concentration": "EDP",
+    "category": "Arabian / Middle Eastern",
+    "volume": "100ml",
+    "price": "3299",
+    "originalPrice": "3999",
+    "rating": 4.45,
+    "votes": 380,
+    "gender": "Masculine",
+    "inspiredBy": "Modern Sweet Aromatic Amber Fougere",
+    "accords": [
+      {
+        "name": "aromatic",
+        "percent": 92,
+        "color": "#43A047"
+      },
+      {
+        "name": "fresh spicy",
+        "percent": 85,
+        "color": "#26A69A"
+      },
+      {
+        "name": "sweet",
+        "percent": 80,
+        "color": "#E91E63"
+      },
+      {
+        "name": "citrus",
+        "percent": 78,
+        "color": "#FDD835"
+      },
+      {
+        "name": "woody",
+        "percent": 72,
+        "color": "#8D6E63"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Bergamot",
+        "Grapefruit",
+        "Sage"
+      ],
+      "middleNotes": [
+        "Lavender",
+        "Cardamom",
+        "Juniper Berry"
+      ],
+      "baseNotes": [
+        "Caramel",
+        "Oriental Notes",
+        "Vetiver"
+      ],
+      "top": [
+        "Bergamot",
+        "Grapefruit",
+        "Sage"
+      ],
+      "middle": [
+        "Lavender",
+        "Cardamom",
+        "Juniper Berry"
+      ],
+      "base": [
+        "Caramel",
+        "Oriental Notes",
+        "Vetiver"
+      ]
+    },
+    "seasons": {
+      "spring": 35,
+      "summer": 30,
+      "fall": 25,
+      "winter": 10,
+      "day": 65,
+      "night": 35
+    },
+    "performance": {
+      "longevity": "Long Lasting (8-10 hrs)",
+      "sillage": "Strong"
+    },
+    "image": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.119003.2x.jpg",
+    "buyLinks": [
+      {
+        "name": "Belvish",
+        "url": "https://belvish.com/products/afnan-lynked-freedom"
+      },
+      {
+        "name": "Afnan Official",
+        "url": "https://india.afnan.com"
+      }
+    ],
+    "description": "Afnan's magnetic 2025 release blending invigorating bergamot and clary sage with a rich aromatic heart of lavender and juniper berries, anchored in luscious salted caramel, oriental resins, and earthy vetiver.",
+    "seasonsList": [
+      "Spring",
+      "Summer",
+      "All Weather",
+      "Day Wear"
+    ],
+    "occasions": [
+      "Office / Work",
+      "Everyday Casual",
+      "Party / Clubbing"
+    ]
+  },
+  {
+    "id": "86",
+    "name": "Green Irish Tweed",
+    "brand": "Creed",
+    "concentration": "EDP",
+    "category": "Niche",
+    "volume": "100ml",
+    "price": "34500",
+    "originalPrice": "36500",
+    "rating": 4.54,
+    "votes": 16800,
+    "gender": "Masculine",
+    "inspiredBy": "Iconic Aristocratic Countryside Fougère Masterpiece",
+    "accords": [
+      {
+        "name": "green",
+        "percent": 95,
+        "color": "#4CAF50"
+      },
+      {
+        "name": "ozonic",
+        "percent": 88,
+        "color": "#81D4FA"
+      },
+      {
+        "name": "citrus",
+        "percent": 82,
+        "color": "#FDD835"
+      },
+      {
+        "name": "woody",
+        "percent": 78,
+        "color": "#8D6E63"
+      },
+      {
+        "name": "powdery",
+        "percent": 72,
+        "color": "#CFD8DC"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Lemon",
+        "Verbena",
+        "Peppermint",
+        "Bergamot"
+      ],
+      "middleNotes": [
+        "Violet Leaves",
+        "Florentine Iris",
+        "Geranium",
+        "Lavender"
+      ],
+      "baseNotes": [
+        "Ambergris",
+        "Sandalwood",
+        "Cedarwood",
+        "Oakmoss"
+      ],
+      "top": [
+        "Lemon",
+        "Verbena",
+        "Peppermint",
+        "Bergamot"
+      ],
+      "middle": [
+        "Violet Leaves",
+        "Florentine Iris",
+        "Geranium",
+        "Lavender"
+      ],
+      "base": [
+        "Ambergris",
+        "Sandalwood",
+        "Cedarwood",
+        "Oakmoss"
+      ]
+    },
+    "seasons": {
+      "spring": 45,
+      "summer": 35,
+      "fall": 15,
+      "winter": 5,
+      "day": 80,
+      "night": 20
+    },
+    "performance": {
+      "longevity": "Long Lasting (8-10 hrs)",
+      "sillage": "Moderate to Strong"
+    },
+    "image": "https://static.thcdn.com/productimg/original/12870035-8495164180496709.jpg",
+    "buyLinks": [
+      {
+        "name": "Creed Official",
+        "url": "https://www.creedfragrance.com/p/green-irish-tweed/12870035/"
+      },
+      {
+        "name": "Belvish",
+        "url": "https://belvish.com/products/creed-green-irish-tweed-edp-for-men"
+      }
+    ],
+    "description": "The quintessential gentleman's fougère evoking lush emerald meadows of the Irish countryside. Vibrant lemon verbena and crisp peppermint meet delicate violet leaves, resting on vintage Mysore sandalwood and genuine ambergris.",
+    "seasonsList": [
+      "Spring",
+      "Summer",
+      "All Weather"
+    ],
+    "occasions": [
+      "Office / Work",
+      "Special Occasion",
+      "Day Wear",
+      "Everyday Casual"
+    ]
+  },
+  {
+    "id": "87",
+    "name": "Viking Cologne",
+    "brand": "Creed",
+    "concentration": "EDP",
+    "category": "Niche",
+    "volume": "100ml",
+    "price": "34500",
+    "originalPrice": "36500",
+    "rating": 4.41,
+    "votes": 4800,
+    "gender": "Masculine",
+    "inspiredBy": "Modern Oceanic Aromatic Fougère of Boundless Exploration",
+    "accords": [
+      {
+        "name": "aromatic",
+        "percent": 92,
+        "color": "#43A047"
+      },
+      {
+        "name": "citrus",
+        "percent": 88,
+        "color": "#FDD835"
+      },
+      {
+        "name": "fresh spicy",
+        "percent": 84,
+        "color": "#26A69A"
+      },
+      {
+        "name": "woody",
+        "percent": 78,
+        "color": "#8D6E63"
+      },
+      {
+        "name": "herbal",
+        "percent": 72,
+        "color": "#689F38"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Mandarin Orange",
+        "Pink Pepper",
+        "Lemon",
+        "Bergamot"
+      ],
+      "middleNotes": [
+        "Lavender",
+        "Geranium",
+        "Nutmeg",
+        "Rosemary",
+        "Sage"
+      ],
+      "baseNotes": [
+        "Vetiver",
+        "Sandalwood",
+        "Cedarwood",
+        "Frankincense",
+        "Patchouli"
+      ],
+      "top": [
+        "Mandarin Orange",
+        "Pink Pepper",
+        "Lemon",
+        "Bergamot"
+      ],
+      "middle": [
+        "Lavender",
+        "Geranium",
+        "Nutmeg",
+        "Rosemary",
+        "Sage"
+      ],
+      "base": [
+        "Vetiver",
+        "Sandalwood",
+        "Cedarwood",
+        "Frankincense",
+        "Patchouli"
+      ]
+    },
+    "seasons": {
+      "spring": 40,
+      "summer": 40,
+      "fall": 15,
+      "winter": 5,
+      "day": 75,
+      "night": 25
+    },
+    "performance": {
+      "longevity": "Long Lasting (7-9 hrs)",
+      "sillage": "Moderate to Strong"
+    },
+    "image": "https://static.thcdn.com/productimg/original/12870054-1995132259376620.jpg",
+    "buyLinks": [
+      {
+        "name": "Creed Official",
+        "url": "https://www.creedfragrance.com/p/viking-cologne/12870054/"
+      },
+      {
+        "name": "Belvish",
+        "url": "https://belvish.com/products/creed-viking-cologne-edp"
+      }
+    ],
+    "description": "A free-spirited, invigorating reimagining of Viking. Opens with zesty mandarin and tingling pink pepper, evolving into an alpine aromatic heart of lavender and rosemary, settling onto frankincense, smoky vetiver, and clean cedar.",
+    "seasonsList": [
+      "Spring",
+      "Summer",
+      "All Weather"
+    ],
+    "occasions": [
+      "Office / Work",
+      "Day Wear",
+      "Everyday Casual",
+      "Sports / Gym"
+    ]
+  },
+  {
+    "id": "88",
+    "name": "Silver Mountain Water",
+    "brand": "Creed",
+    "concentration": "EDP",
+    "category": "Niche",
+    "volume": "100ml",
+    "price": "34500",
+    "originalPrice": "36500",
+    "rating": 4.48,
+    "votes": 14200,
+    "gender": "Unisex",
+    "inspiredBy": "Crisp Swiss Alpine Streams & Shimmering Mountain Air",
+    "accords": [
+      {
+        "name": "green",
+        "percent": 90,
+        "color": "#4CAF50"
+      },
+      {
+        "name": "citrus",
+        "percent": 86,
+        "color": "#FDD835"
+      },
+      {
+        "name": "fruity",
+        "percent": 82,
+        "color": "#FB8C00"
+      },
+      {
+        "name": "aromatic",
+        "percent": 78,
+        "color": "#43A047"
+      },
+      {
+        "name": "musky",
+        "percent": 75,
+        "color": "#B0BEC5"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Bergamot",
+        "Mandarin Orange",
+        "Neroli"
+      ],
+      "middleNotes": [
+        "Green Tea",
+        "Blackcurrant Bud",
+        "Ozonic Notes"
+      ],
+      "baseNotes": [
+        "Musk",
+        "Sandalwood",
+        "Petitgrain",
+        "Galbanum"
+      ],
+      "top": [
+        "Bergamot",
+        "Mandarin Orange",
+        "Neroli"
+      ],
+      "middle": [
+        "Green Tea",
+        "Blackcurrant Bud",
+        "Ozonic Notes"
+      ],
+      "base": [
+        "Musk",
+        "Sandalwood",
+        "Petitgrain",
+        "Galbanum"
+      ]
+    },
+    "seasons": {
+      "spring": 40,
+      "summer": 45,
+      "fall": 10,
+      "winter": 5,
+      "day": 85,
+      "night": 15
+    },
+    "performance": {
+      "longevity": "Moderate to Long Lasting (6-8 hrs)",
+      "sillage": "Moderate"
+    },
+    "image": "https://static.thcdn.com/productimg/original/12870049-1875303061449466.jpg",
+    "buyLinks": [
+      {
+        "name": "Creed Official",
+        "url": "https://www.creedfragrance.com/p/silver-mountain-water/12870049/"
+      },
+      {
+        "name": "Belvish",
+        "url": "https://belvish.com/products/creed-silver-mountain-water-edp-for-men"
+      }
+    ],
+    "description": "Inspired by the sparkling exhilaration of the Swiss Alps. Crisp bergamot and juicy blackcurrant weave into frosty green tea and crystalline ozonic accords, enveloped in clean white musk and creamy sandalwood.",
+    "seasonsList": [
+      "Spring",
+      "Summer",
+      "Day Wear"
+    ],
+    "occasions": [
+      "Day Wear",
+      "Office / Work",
+      "Everyday Casual",
+      "Special Occasion"
+    ]
   }
 ];
 
 export const ACCORD_COLORS = {
-  woody: '#8D6E63',
-  citrus: '#FDD835',
-  amber: '#FFA000',
-  'warm spicy': '#E64A19',
-  fresh: '#26C6DA',
-  aquatic: '#00ACC1',
-  aromatic: '#43A047',
-  sweet: '#E91E63',
-  vanilla: '#FFE082',
-  leather: '#5D4037',
-  floral: '#F48FB1',
-  whitefloral: '#EEEEEE',
-  fruity: '#FF7043',
-  smoky: '#546E7A',
-  powdery: '#CFD8DC',
-  musky: '#B0BEC5',
-  oud: '#4E342E',
-  tobacco: '#6D4C41',
-  patchouli: '#558B2F',
-  green: '#66BB6A',
-  earthy: '#795548',
-  balsamic: '#D84315'
+  "woody": "#8D6E63",
+  "citrus": "#FDD835",
+  "amber": "#FFA000",
+  "warm spicy": "#E64A19",
+  "fresh": "#26C6DA",
+  "aquatic": "#00ACC1",
+  "aromatic": "#43A047",
+  "sweet": "#E91E63",
+  "vanilla": "#FFE082",
+  "leather": "#5D4037",
+  "floral": "#F48FB1",
+  "whitefloral": "#EEEEEE",
+  "fruity": "#FF7043",
+  "smoky": "#546E7A",
+  "powdery": "#CFD8DC",
+  "musky": "#B0BEC5",
+  "oud": "#4E342E",
+  "tobacco": "#6D4C41",
+  "patchouli": "#558B2F",
+  "green": "#66BB6A",
+  "earthy": "#795548",
+  "balsamic": "#D84315"
 };

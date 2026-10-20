@@ -2,24 +2,55 @@ import React, { useState, useEffect } from 'react';
 import { ArrowUpIcon } from 'lucide-animated';
 import Navbar from './components/Navbar.jsx';
 import VaultView from './components/VaultView.jsx';
-import SOTDView from './components/SOTDView.jsx';
-import NotesExplorer from './components/NotesExplorer.jsx';
-import AnalyticsView from './components/AnalyticsView.jsx';
 import PerfumeDetailPage from './components/PerfumeDetailPage.jsx';
 import PerfumeFormSheet from './components/PerfumeFormSheet.jsx';
 import MainWebsiteLoader from './components/MainWebsiteLoader.jsx';
+import NotFoundPage from './components/NotFoundPage.jsx';
 import {
   getStoredPerfumes,
-  savePerfumes,
-  getSOTDLogs,
-  logSOTD
+  savePerfumes
 } from './services/storage.js';
+
+const checkIs404Route = () => {
+  if (typeof window === 'undefined') return false;
+  const path = window.location.pathname;
+  const hash = window.location.hash;
+  return (
+    hash === '#404' ||
+    (path !== '/' && path !== '' && path !== '/index.html' && !path.startsWith('/?'))
+  );
+};
 
 function App() {
   const [perfumes, setPerfumes] = useState(() => getStoredPerfumes());
-  const [sotdLogs, setSotdLogs] = useState(() => getSOTDLogs());
-  const [isWebsiteLoading, setIsWebsiteLoading] = useState(true);
   const [showBackToTop, setShowBackToTop] = useState(false);
+
+  // Check if current route is 404
+  const [isNotFound, setIsNotFound] = useState(() => checkIs404Route());
+
+  // Show website loader ONLY on the home collection on initial visit, NEVER on 404 routes
+  const [isWebsiteLoading, setIsWebsiteLoading] = useState(() => {
+    if (checkIs404Route()) return false;
+    return !sessionStorage.getItem('kushal_perfumes_preloaded');
+  });
+
+  // Listen to popstate and hashchange to react dynamically to 404 or route changes
+  useEffect(() => {
+    const handleRoute = () => {
+      const is404 = checkIs404Route();
+      setIsNotFound(is404);
+      if (is404) {
+        setIsWebsiteLoading(false);
+      }
+    };
+
+    window.addEventListener('popstate', handleRoute);
+    window.addEventListener('hashchange', handleRoute);
+    return () => {
+      window.removeEventListener('popstate', handleRoute);
+      window.removeEventListener('hashchange', handleRoute);
+    };
+  }, []);
 
   // Monitor scroll position for Back To Top button
   useEffect(() => {
@@ -37,7 +68,6 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const [activeTab, setActiveTab] = useState('vault'); // 'vault' | 'sotd' | 'notes' | 'stats'
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('rating');
   const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'list'
@@ -45,7 +75,6 @@ function App() {
   const [selectedPerfume, setSelectedPerfume] = useState(null);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingPerfume, setEditingPerfume] = useState(null);
-  const [sotdPreselected, setSotdPreselected] = useState(null);
 
   // Open Full Detail Page
   const handleSelectPerfume = (perfume) => {
@@ -57,20 +86,6 @@ function App() {
   const handleBackToCollection = () => {
     setSelectedPerfume(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // Log Wear from Detail Page
-  const handleLogWearFromDetail = (perfume) => {
-    setSotdPreselected(perfume);
-    setSelectedPerfume(null);
-    setActiveTab('sotd');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // Save SOTD Log
-  const handleSaveSOTD = (entry) => {
-    const updated = logSOTD(entry);
-    setSotdLogs([...updated]);
   };
 
   // Add / Edit Perfume
@@ -100,91 +115,74 @@ function App() {
     }
   };
 
-  const handleOpenAddModal = () => {
-    setEditingPerfume(null);
-    setIsFormOpen(true);
-  };
-
   const handleEditFromDetail = (perfume) => {
     setEditingPerfume(perfume);
     setIsFormOpen(true);
   };
 
+  // Return from 404 Scent Lost
+  const handleReturnHome = () => {
+    setIsNotFound(false);
+    setSelectedPerfume(null);
+    window.history.pushState(null, '', '/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Explore note from 404 Scent Lost (searches note directly in Collection)
+  const handleExploreNoteFrom404 = (note) => {
+    setIsNotFound(false);
+    setSelectedPerfume(null);
+    setSearchQuery(note);
+    window.history.pushState(null, '', '/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-[#080808] text-neutral-100 flex flex-col font-sans selection:bg-neutral-800 selection:text-white">
-      {/* Main Website Loader (Initial Visit & Preload) */}
-      {isWebsiteLoading && (
+      {/* Main Website Loader (Initial Visit & Preload - NEVER on 404 routes) */}
+      {!isNotFound && isWebsiteLoading && (
         <MainWebsiteLoader
           perfumes={perfumes}
-          onLoaded={() => setIsWebsiteLoading(false)}
+          onLoaded={() => {
+            sessionStorage.setItem('kushal_perfumes_preloaded', 'true');
+            setIsWebsiteLoading(false);
+          }}
         />
       )}
 
-      {/* Top Navbar */}
+      {/* Top Navbar (Clean Single Showcase Header) */}
       <Navbar
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        onOpenAddModal={handleOpenAddModal}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         viewMode={viewMode}
         setViewMode={setViewMode}
         totalBottles={perfumes.length}
-        isDetailView={Boolean(selectedPerfume)}
-        onBackToCollection={handleBackToCollection}
+        isDetailView={Boolean(selectedPerfume) || isNotFound}
+        onBackToCollection={isNotFound ? handleReturnHome : handleBackToCollection}
       />
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 pt-4 pb-safe">
-        {selectedPerfume ? (
+        {isNotFound ? (
+          /* Custom 404 Olfactory Trail Lost / Evaporated Flacon View */
+          <NotFoundPage onReturnHome={handleReturnHome} />
+        ) : selectedPerfume ? (
           /* Full Detail Page View */
           <PerfumeDetailPage
             perfume={selectedPerfume}
             onBack={handleBackToCollection}
-            onLogWear={handleLogWearFromDetail}
             onEdit={handleEditFromDetail}
           />
         ) : (
-          <>
-            {/* TAB 1: Collection Vault */}
-            {activeTab === 'vault' && (
-              <VaultView
-                perfumes={perfumes}
-                searchQuery={searchQuery}
-                sortBy={sortBy}
-                setSortBy={setSortBy}
-                viewMode={viewMode}
-                onSelectPerfume={handleSelectPerfume}
-              />
-            )}
-
-            {/* TAB 2: Scent of the Day (SOTD Journal) */}
-            {activeTab === 'sotd' && (
-              <SOTDView
-                perfumes={perfumes}
-                logs={sotdLogs}
-                onSaveLog={handleSaveSOTD}
-                onSelectPerfume={handleSelectPerfume}
-                preselectedPerfume={sotdPreselected}
-              />
-            )}
-
-            {/* TAB 3: Notes & Accords Explorer */}
-            {activeTab === 'notes' && (
-              <NotesExplorer
-                perfumes={perfumes}
-                onSelectPerfume={handleSelectPerfume}
-              />
-            )}
-
-            {/* TAB 4: Analytics & Stats */}
-            {activeTab === 'stats' && (
-              <AnalyticsView
-                perfumes={perfumes}
-                sotdLogs={sotdLogs}
-              />
-            )}
-          </>
+          /* Main Fragrance Collection Showcase */
+          <VaultView
+            perfumes={perfumes}
+            searchQuery={searchQuery}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+            viewMode={viewMode}
+            onSelectPerfume={handleSelectPerfume}
+          />
         )}
       </main>
 
