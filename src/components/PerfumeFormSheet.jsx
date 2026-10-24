@@ -18,7 +18,6 @@ const PerfumeFormSheet = ({
     category: 'Arabian / Middle Eastern',
     price: '',
     originalPrice: '',
-    rating: '4.4',
     inspiredBy: '',
     image: '',
     topNotes: '',
@@ -42,7 +41,6 @@ const PerfumeFormSheet = ({
         category: initialData.category || 'Arabian / Middle Eastern',
         price: initialData.price || '',
         originalPrice: initialData.originalPrice || '',
-        rating: initialData.rating || '4.4',
         inspiredBy: initialData.inspiredBy || '',
         image: initialData.image || '',
         topNotes: (initialData.notes?.topNotes || initialData.notes?.top || []).join(', '),
@@ -64,7 +62,6 @@ const PerfumeFormSheet = ({
         category: 'Arabian / Middle Eastern',
         price: '',
         originalPrice: '',
-        rating: '4.4',
         inspiredBy: '',
         image: '',
         topNotes: '',
@@ -111,8 +108,6 @@ const PerfumeFormSheet = ({
       category: formData.category,
       price: formData.price,
       originalPrice: formData.originalPrice || formData.price,
-      rating: parseFloat(formData.rating) || 4.3,
-      votes: initialData?.votes || 1200,
       inspiredBy: formData.inspiredBy,
       image:
         formData.image ||
@@ -237,9 +232,9 @@ const PerfumeFormSheet = ({
                 options={[
                   'EDP',
                   'EDT',
-                  'Extrait De Parfum',
-                  'Pure Parfum',
-                  'Attar / Oil'
+                  'Extrait',
+                  'PP',
+                  'Attar'
                 ]}
                 placeholder="Concentration..."
               />

@@ -1,14 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-/**
- * MainWebsiteLoader - Hyper-Realistic Luxury Perfume Flacon Loader (Pure Monochrome / Silver Theme)
- * 
- * Updates:
- * - Completely removed harsh rectangular white glare / shadow.
- * - Replaced dotted straight center line with an authentic natural curved ("snake type") clear dip tube.
- * - Converted all gold accents to pure luxury brushed platinum, chrome, silver, and crisp crystal grey-white liquid.
- * - Retained physical capillary meniscus, smooth viscous waves, and micro-bubbles.
- */
 const MainWebsiteLoader = ({ perfumes = [], onLoaded }) => {
   const [isFadingOut, setIsFadingOut] = useState(false);
   const canvasRef = useRef(null);
@@ -17,12 +8,8 @@ const MainWebsiteLoader = ({ perfumes = [], onLoaded }) => {
   const currentProgressRef = useRef(0);
 
   useEffect(() => {
-    // Sort perfumes to preload highest-rated items first
-    const sortedForDashboard = [...perfumes].sort(
-      (a, b) => (parseFloat(b.rating) || 0) - (parseFloat(a.rating) || 0)
-    );
-
-    const imagesToPreload = sortedForDashboard
+    // Preload first 20 perfume bottle images
+    const imagesToPreload = perfumes
       .map((p) => p.image)
       .filter(Boolean)
       .slice(0, 20);

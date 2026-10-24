@@ -84,11 +84,10 @@ const VaultView = ({
   ];
 
   const sortOptions = [
-    { value: 'price-low', label: 'Price: Low to High' },
-    { value: 'price-high', label: 'Price: High to Low' },
     { value: 'name', label: 'Name (A to Z)' },
     { value: 'brand', label: 'Brand (A to Z)' },
-    { value: 'rating', label: 'Rating (Highest First)' }
+    { value: 'price-low', label: 'Price: Low to High' },
+    { value: 'price-high', label: 'Price: High to Low' }
   ];
 
   // Quick filter handler
@@ -204,8 +203,6 @@ const VaultView = ({
       })
       .sort((a, b) => {
         switch (sortBy) {
-          case 'rating':
-            return (parseFloat(b.rating) || 0) - (parseFloat(a.rating) || 0);
           case 'price-low':
             return (parseInt(a.price) || 0) - (parseInt(b.price) || 0);
           case 'price-high':
@@ -254,31 +251,35 @@ const VaultView = ({
 
   return (
     <div className="space-y-4 pb-20 animate-fade-in">
-      {/* 1. Quick Filter Pills Carousel - Clean Editorial Style */}
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
-        {QUICK_FILTERS.map((filter) => {
-          const isActive = activeQuickFilter === filter.id;
-          return (
-            <button
-              key={filter.id}
-              onClick={() => handleQuickFilterClick(filter)}
-              className={`px-3 py-1.5 rounded-lg text-[10px] font-mono tracking-widest whitespace-nowrap transition-all active:scale-95 flex-shrink-0 ${
-                isActive
-                  ? 'bg-white text-black font-semibold'
-                  : 'bg-[#121212] text-neutral-400 hover:text-white border border-white/[0.06]'
-              }`}
-            >
-              {filter.label}
-            </button>
-          );
-        })}
+      {/* 1. Quick Filter Pills Carousel - Clean Editorial Style with Edge Darkness Fades */}
+      <div className="relative">
+        <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-[#080808] to-transparent z-10 pointer-events-none" />
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 px-1">
+          {QUICK_FILTERS.map((filter) => {
+            const isActive = activeQuickFilter === filter.id;
+            return (
+              <button
+                key={filter.id}
+                onClick={() => handleQuickFilterClick(filter)}
+                className={`px-3 py-1.5 rounded-lg text-[10px] font-mono tracking-widest whitespace-nowrap transition-all active:scale-95 flex-shrink-0 ${
+                  isActive
+                    ? 'bg-white text-black font-semibold'
+                    : 'bg-[#121212] text-neutral-400 hover:text-white border border-white/[0.06]'
+                }`}
+              >
+                {filter.label}
+              </button>
+            );
+          })}
+        </div>
+        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#080808] to-transparent z-10 pointer-events-none" />
       </div>
 
       {/* 2. Structured Filter Controls Bar */}
       <div className="vault-panel rounded-xl p-3 border border-white/[0.08] space-y-3">
-        <div className="flex items-center justify-between gap-2.5 flex-wrap">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5">
           {/* Brand Filter */}
-          <div className="flex-1 min-w-[170px]">
+          <div>
             <LuxuryDropdown
               value={selectedBrand}
               onChange={setSelectedBrand}
@@ -290,7 +291,7 @@ const VaultView = ({
           </div>
 
           {/* Occasion Filter */}
-          <div className="flex-1 min-w-[150px]">
+          <div>
             <LuxuryDropdown
               value={selectedOccasion}
               onChange={(val) => {
@@ -304,7 +305,7 @@ const VaultView = ({
           </div>
 
           {/* Season Filter */}
-          <div className="flex-1 min-w-[150px]">
+          <div>
             <LuxuryDropdown
               value={selectedSeason}
               onChange={(val) => {
@@ -318,7 +319,7 @@ const VaultView = ({
           </div>
 
           {/* Sort Dropdown */}
-          <div className="flex-1 min-w-[160px] sm:flex-initial">
+          <div>
             <LuxuryDropdown
               value={sortBy}
               onChange={setSortBy}
@@ -330,23 +331,23 @@ const VaultView = ({
         </div>
 
         {/* Filter Results & Reset Action */}
-        <div className="flex items-center justify-between pt-1 border-t border-white/[0.06] text-xs text-neutral-400">
-          <div className="flex items-center gap-2">
-            <span>
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-1.5 border-t border-white/[0.06] text-xs text-neutral-400">
+          <div className="flex flex-wrap items-center gap-1.5 min-w-0">
+            <span className="whitespace-nowrap">
               Showing: <strong className="text-white font-semibold">{filteredPerfumes.length}</strong> of {perfumes.length} perfumes
             </span>
             {selectedSeason !== 'all' && (
-              <span className="px-2 py-0.5 bg-neutral-800 text-neutral-200 rounded text-[10px] font-medium uppercase tracking-wider">
+              <span className="px-2 py-0.5 bg-neutral-800 text-neutral-200 rounded text-[10px] font-medium uppercase tracking-wider whitespace-nowrap">
                 {selectedSeason}
               </span>
             )}
             {selectedOccasion !== 'all' && (
-              <span className="px-2 py-0.5 bg-neutral-800 text-neutral-200 rounded text-[10px] font-medium uppercase tracking-wider">
+              <span className="px-2 py-0.5 bg-neutral-800 text-neutral-200 rounded text-[10px] font-medium uppercase tracking-wider whitespace-nowrap">
                 {selectedOccasion}
               </span>
             )}
             {selectedBrand !== 'all' && (
-              <span className="px-2 py-0.5 bg-neutral-800 text-neutral-200 rounded text-[10px] font-medium uppercase tracking-wider">
+              <span className="px-2 py-0.5 bg-neutral-800 text-neutral-200 rounded text-[10px] font-medium uppercase tracking-wider whitespace-nowrap">
                 {selectedBrand}
               </span>
             )}
@@ -355,7 +356,7 @@ const VaultView = ({
           {hasActiveFilters && (
             <button
               onClick={handleResetFilters}
-              className="flex items-center gap-1 text-[11px] font-semibold text-neutral-400 hover:text-white transition uppercase tracking-wider"
+              className="flex items-center gap-1 text-[11px] font-semibold text-neutral-400 hover:text-white transition uppercase tracking-wider shrink-0 whitespace-nowrap"
             >
               <XIcon size={12} animateOnHover={true} />
               <span>Reset</span>

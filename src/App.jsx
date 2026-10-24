@@ -6,6 +6,7 @@ import PerfumeDetailPage from './components/PerfumeDetailPage.jsx';
 import PerfumeFormSheet from './components/PerfumeFormSheet.jsx';
 import MainWebsiteLoader from './components/MainWebsiteLoader.jsx';
 import NotFoundPage from './components/NotFoundPage.jsx';
+import ScentTasteMatcher from './components/ScentTasteMatcher.jsx';
 import {
   getStoredPerfumes,
   savePerfumes
@@ -21,6 +22,14 @@ const checkIs404Route = () => {
   );
 };
 
+const getPerfumeFromUrl = (allPerfumes) => {
+  if (typeof window === 'undefined') return null;
+  const params = new URLSearchParams(window.location.search);
+  const pid = params.get('perfume') || params.get('id');
+  if (!pid) return null;
+  return allPerfumes.find((p) => String(p.id) === String(pid)) || null;
+};
+
 function App() {
   const [perfumes, setPerfumes] = useState(() => getStoredPerfumes());
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -34,13 +43,29 @@ function App() {
     return !sessionStorage.getItem('kushal_perfumes_preloaded');
   });
 
-  // Listen to popstate and hashchange to react dynamically to 404 or route changes
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState('name');
+  const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'list'
+  const [activeTab, setActiveTab] = useState('collection'); // 'collection' | 'test'
+
+  // Deep-link initial state from URL query ?perfume=<id>
+  const [selectedPerfume, setSelectedPerfume] = useState(() => {
+    const initial = getStoredPerfumes();
+    return getPerfumeFromUrl(initial);
+  });
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [editingPerfume, setEditingPerfume] = useState(null);
+
+  // Listen to popstate and hashchange to react dynamically to 404, query params, or route changes
   useEffect(() => {
     const handleRoute = () => {
       const is404 = checkIs404Route();
       setIsNotFound(is404);
       if (is404) {
         setIsWebsiteLoading(false);
+      } else {
+        const perfFromUrl = getPerfumeFromUrl(perfumes);
+        setSelectedPerfume(perfFromUrl);
       }
     };
 
@@ -50,7 +75,7 @@ function App() {
       window.removeEventListener('popstate', handleRoute);
       window.removeEventListener('hashchange', handleRoute);
     };
-  }, []);
+  }, [perfumes]);
 
   // Monitor scroll position for Back To Top button
   useEffect(() => {
@@ -68,23 +93,28 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState('rating');
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'list'
+  // Always scroll to top immediately when switching between Collection and Test tabs
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (document.documentElement) document.documentElement.scrollTop = 0;
+    if (document.body) document.body.scrollTop = 0;
+  }, [activeTab]);
 
-  const [selectedPerfume, setSelectedPerfume] = useState(null);
-  const [isFormOpen, setIsFormOpen] = useState(false);
-  const [editingPerfume, setEditingPerfume] = useState(null);
-
-  // Open Full Detail Page
+  // Open Full Detail Page with URL deep-link
   const handleSelectPerfume = (perfume) => {
     setSelectedPerfume(perfume);
+    if (typeof window !== 'undefined') {
+      window.history.pushState({ perfumeId: perfume.id }, '', `/?perfume=${perfume.id}`);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Back from Detail Page
+  // Back from Detail Page to Collection
   const handleBackToCollection = () => {
     setSelectedPerfume(null);
+    if (typeof window !== 'undefined') {
+      window.history.pushState(null, '', '/');
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -128,14 +158,6 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Explore note from 404 Scent Lost (searches note directly in Collection)
-  const handleExploreNoteFrom404 = (note) => {
-    setIsNotFound(false);
-    setSelectedPerfume(null);
-    setSearchQuery(note);
-    window.history.pushState(null, '', '/');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <div className="min-h-screen bg-[#080808] text-neutral-100 flex flex-col font-sans selection:bg-neutral-800 selection:text-white">
@@ -150,7 +172,7 @@ function App() {
         />
       )}
 
-      {/* Top Navbar (Clean Single Showcase Header) */}
+      {/* Top Navbar (Clean Single Showcase Header with Section Switcher) */}
       <Navbar
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
@@ -159,6 +181,8 @@ function App() {
         totalBottles={perfumes.length}
         isDetailView={Boolean(selectedPerfume) || isNotFound}
         onBackToCollection={isNotFound ? handleReturnHome : handleBackToCollection}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
       />
 
       {/* Main Content Area */}
@@ -172,6 +196,12 @@ function App() {
             perfume={selectedPerfume}
             onBack={handleBackToCollection}
             onEdit={handleEditFromDetail}
+          />
+        ) : activeTab === 'test' ? (
+          /* Interactive Scent Taste Test & Note Matcher */
+          <ScentTasteMatcher
+            perfumes={perfumes}
+            onSelectPerfume={handleSelectPerfume}
           />
         ) : (
           /* Main Fragrance Collection Showcase */

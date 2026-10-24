@@ -6,7 +6,8 @@ A modern, luxury web application to curate, explore, and track a personal collec
 
 ### ✨ Highlights
 
-- **82+ Curated Fragrances**: Detailed profiles featuring Arabian attars, designer masterpieces, and niche extraits.
+- **91+ Curated Fragrances**: Detailed profiles featuring Arabian attars, designer masterpieces, and niche extraits.
+- **Perfume Taste Test & Note Matcher**: Interactive olfactory engine where you pick desired notes and discover real-time matching fragrances with match percentages.
 - **Olfactory Breakdown**: Complete note pyramids (Top, Heart, Base) and accord intensity distributions.
 - **Smart Filtering & Search**: Instant filtering by brand, fragrance category, notes, concentration, and season.
 - **Mobile-First Experience**: High-performance smooth scrolling with dark luxury aesthetics.

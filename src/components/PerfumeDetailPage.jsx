@@ -291,21 +291,60 @@ const PerfumeDetailPage = ({
     setBottleLevelsState({ ...updated });
   };
 
-  const handleShare = () => {
+  const handleShare = async () => {
+    const origin = typeof window !== 'undefined' ? window.location.origin : '';
+    const shareUrl = `${origin}/?perfume=${perfume.id}`;
+    const shareTitle = `${perfume.name} by ${perfume.brand}`;
+    const shareText = `Check out ${perfume.name} (${perfume.concentration || 'EDP'}) in Kushal's Fragrance Collection! Price: ₹${perfume.price}`;
+
+    const fallbackCopy = (text) => {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2500);
+      } catch (err) {
+        console.error('Fallback copy failed', err);
+      }
+    };
+
+    const copyDirect = (text) => {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2500);
+          })
+          .catch(() => {
+            fallbackCopy(text);
+          });
+      } else {
+        fallbackCopy(text);
+      }
+    };
+
+    // 1. ALWAYS copy the link directly into the clipboard automatically
+    copyDirect(shareUrl);
+
+    // 2. Also trigger native mobile share sheet if supported
     if (navigator.share) {
-      navigator
-        .share({
-          title: `${perfume.name} by ${perfume.brand}`,
-          text: `Check out ${perfume.name} in Kushal's Fragrance Collection`,
-          url: window.location.href
-        })
-        .catch(() => {});
-    } else {
-      navigator.clipboard.writeText(
-        `${perfume.name} by ${perfume.brand} - ₹${perfume.price}`
-      );
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      try {
+        await navigator.share({
+          title: shareTitle,
+          text: `${shareText}\n${shareUrl}`,
+          url: shareUrl
+        });
+      } catch (err) {
+        // User dismissed native share sheet; link is already safely copied to clipboard
+      }
     }
   };
 
@@ -326,7 +365,15 @@ const PerfumeDetailPage = ({
   );
 
   return (
-    <div className="min-h-screen bg-[#080808] text-neutral-100 pb-20 animate-fade-in">
+    <div className="min-h-screen bg-[#080808] text-neutral-100 pb-20 animate-fade-in relative">
+      {/* Toast Notification when Copied / Shared */}
+      {copied && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#161616] text-white border border-emerald-500/40 px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 text-xs font-semibold animate-fadeIn backdrop-blur-md">
+          <CheckIcon size={14} className="text-emerald-400" />
+          <span>Perfume link copied to clipboard!</span>
+        </div>
+      )}
+
       {/* Top Navigation Bar */}
       <div className="sticky top-0 z-30 bg-[#080808]/95 backdrop-blur-md border-b border-white/[0.08] px-4 py-3">
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
@@ -335,21 +382,26 @@ const PerfumeDetailPage = ({
             className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#141414] hover:bg-[#1f1f1f] border border-white/[0.08] text-neutral-300 hover:text-white text-xs font-medium transition active:scale-95 group"
           >
             <ArrowLeftIcon size={15} animateOnHover={true} className="group-hover:-translate-x-0.5 transition-transform" />
-            <span>Back to Collection</span>
+            <span className="hidden sm:inline">Back to Collection</span>
+            <span className="sm:hidden">Back</span>
           </button>
 
           <div className="flex items-center gap-2">
             <button
               onClick={handleShare}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#141414] hover:bg-[#1f1f1f] border border-white/[0.08] text-neutral-400 hover:text-white text-xs transition active:scale-95"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium transition active:scale-95 ${
+                copied
+                  ? 'bg-emerald-500/15 border-emerald-500/30 text-emerald-400'
+                  : 'bg-[#141414] hover:bg-[#1f1f1f] border-white/[0.08] text-neutral-300 hover:text-white'
+              }`}
               title="Share Fragrance"
             >
               {copied ? (
                 <CheckIcon size={14} animateOnHover={true} className="text-emerald-400" />
               ) : (
-                <CopyIcon size={14} animateOnHover={true} />
+                <LinkIcon size={14} animateOnHover={true} />
               )}
-              <span className="hidden sm:inline">{copied ? 'Copied' : 'Share'}</span>
+              <span>{copied ? 'Link Copied!' : 'Share'}</span>
             </button>
 
             {onEdit && (

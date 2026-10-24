@@ -1290,7 +1290,7 @@ export const perfumes = [
     "id": "14",
     "name": "Armaf Club De Nuit Intense Man Pure Parfum",
     "brand": "Armaf",
-    "concentration": "Pure Parfum",
+    "concentration": "PP",
     "category": "Arabian / Middle Eastern",
     "volume": "150ml",
     "price": "3949",
@@ -6091,110 +6091,7 @@ export const perfumes = [
       "Day Wear"
     ]
   },
-  {
-    "id": "62",
-    "name": "Mercedes-Benz Club Black",
-    "brand": "Mercedes-Benz",
-    "concentration": "EDT",
-    "category": "Designer",
-    "volume": "100ml",
-    "price": "5950",
-    "originalPrice": "5950",
-    "rating": 4.58,
-    "votes": 7600,
-    "gender": "Masculine",
-    "inspiredBy": "Original Vanilla Smokey Masterpiece by Olivier Cresp",
-    "accords": [
-      {
-        "name": "vanilla",
-        "percent": 96,
-        "color": "#FFE082"
-      },
-      {
-        "name": "amber",
-        "percent": 90,
-        "color": "#FFA000"
-      },
-      {
-        "name": "smoky",
-        "percent": 82,
-        "color": "#424242"
-      },
-      {
-        "name": "warm spicy",
-        "percent": 75,
-        "color": "#E64A19"
-      },
-      {
-        "name": "woody",
-        "percent": 68,
-        "color": "#8D6E63"
-      }
-    ],
-    "notes": {
-      "topNotes": [
-        "Bergamot"
-      ],
-      "middleNotes": [
-        "Incense",
-        "Jasmine"
-      ],
-      "baseNotes": [
-        "Vanilla",
-        "Benzoin",
-        "Ambroxan",
-        "Woody Notes"
-      ],
-      "top": [
-        "Bergamot"
-      ],
-      "middle": [
-        "Incense",
-        "Jasmine"
-      ],
-      "base": [
-        "Vanilla",
-        "Benzoin",
-        "Ambroxan",
-        "Woody Notes"
-      ]
-    },
-    "seasons": {
-      "spring": 5,
-      "summer": 5,
-      "fall": 40,
-      "winter": 50,
-      "day": 25,
-      "night": 75
-    },
-    "performance": {
-      "longevity": "Long Lasting (8-10 hrs)",
-      "sillage": "Strong"
-    },
-    "image": "https://fimgs.net/mdimg/perfume-thumbs/375x500.46797.jpg",
-    "buyLinks": [
-      {
-        "name": "Belvish",
-        "url": "https://belvish.com/products/mercedes-benz-club-black-edt-for-men"
-      },
-      {
-        "name": "Shoppers Stop",
-        "url": "https://www.shoppersstop.com/mercedes-benz-club-black-eau-de-toilette/p-203774659"
-      }
-    ],
-    "description": "One of the undisputed kings of vanilla fragrances. Master Perfumer Olivier Cresp blends creamy, rich bourbon vanilla with smoky sacred incense, golden benzoin, and warm ambroxan.",
-    "seasonsList": [
-      "Winter",
-      "Fall",
-      "Party"
-    ],
-    "occasions": [
-      "Date Night",
-      "Evening / Night",
-      "Party / Clubbing",
-      "Special Occasion"
-    ]
-  },
+
   {
     "id": "63",
     "name": "Jaguar Classic Black",
@@ -7268,7 +7165,7 @@ export const perfumes = [
     "id": "72",
     "name": "Ababel Perfumes Debonair",
     "brand": "Ababel Perfumes",
-    "concentration": "Extrait De Parfum",
+    "concentration": "Extrait",
     "category": "Indian Artisanal / Niche",
     "volume": "50ml",
     "price": "1099",
@@ -7374,7 +7271,7 @@ export const perfumes = [
     "id": "73",
     "name": "Ababel Perfumes Frosted Flame",
     "brand": "Ababel Perfumes",
-    "concentration": "Extrait De Parfum",
+    "concentration": "Extrait",
     "category": "Indian Artisanal / Niche",
     "volume": "50ml",
     "price": "1099",
@@ -8346,7 +8243,7 @@ export const perfumes = [
     "id": "81",
     "name": "9 PM Night Out",
     "brand": "Afnan",
-    "concentration": "Extrait De Parfum",
+    "concentration": "Extrait",
     "category": "Arabian / Middle Eastern",
     "volume": "100ml",
     "price": "4199",
@@ -8584,7 +8481,7 @@ export const perfumes = [
     "id": "83",
     "name": "Gucci Guilty Elixir de Parfum pour Homme",
     "brand": "Gucci",
-    "concentration": "Extrait De Parfum",
+    "concentration": "Extrait",
     "category": "Designer",
     "volume": "60ml",
     "price": "12800",
@@ -9252,9 +9149,1112 @@ export const perfumes = [
       "Everyday Casual",
       "Special Occasion"
     ]
+  },
+  {
+    "id": "89",
+    "name": "Teriaq Intense",
+    "brand": "Lattafa",
+    "concentration": "EDP",
+    "category": "Arabian / Middle Eastern",
+    "volume": "100ml",
+    "price": "3499",
+    "originalPrice": "4200",
+    "rating": 4.58,
+    "votes": 860,
+    "gender": "Unisex",
+    "inspiredBy": "Rich Boozy Spiced Plum & Amber Gourmand by Quentin Bisch",
+    "accords": [
+      {
+        "name": "amber",
+        "percent": 95,
+        "color": "#FFA000"
+      },
+      {
+        "name": "warm spicy",
+        "percent": 88,
+        "color": "#E64A19"
+      },
+      {
+        "name": "fruity",
+        "percent": 84,
+        "color": "#FB8C00"
+      },
+      {
+        "name": "sweet",
+        "percent": 82,
+        "color": "#E91E63"
+      },
+      {
+        "name": "vanilla",
+        "percent": 78,
+        "color": "#FFE082"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Saffron",
+        "Bergamot"
+      ],
+      "middleNotes": [
+        "Plum Liquor",
+        "Cinnamon"
+      ],
+      "baseNotes": [
+        "Amber",
+        "Tonka Bean",
+        "Benzoin"
+      ],
+      "top": [
+        "Saffron",
+        "Bergamot"
+      ],
+      "middle": [
+        "Plum Liquor",
+        "Cinnamon"
+      ],
+      "base": [
+        "Amber",
+        "Tonka Bean",
+        "Benzoin"
+      ]
+    },
+    "seasons": {
+      "spring": 15,
+      "summer": 5,
+      "fall": 40,
+      "winter": 40,
+      "day": 25,
+      "night": 75
+    },
+    "performance": {
+      "longevity": "Eternal (10-12 hrs)",
+      "sillage": "Enormous"
+    },
+    "image": "https://belvish.com/cdn/shop/files/INTENSE_1.jpg?v=1734789694",
+    "buyLinks": [
+      {
+        "name": "Belvish",
+        "url": "https://belvish.com/products/lattafa-teriaq-intense"
+      },
+      {
+        "name": "Lattafa India",
+        "url": "https://www.lattafaindia.com"
+      }
+    ],
+    "description": "Crafted by master perfumer Quentin Bisch, Teriaq Intense is an opulent oriental-gourmand powerhouse. Opens with spicy golden saffron and zesty bergamot, melting into an intoxicating heart of rich plum liqueur and warm cinnamon, anchored by deep balsamic benzoin, honeyed tonka, and radiating amber.",
+    "seasonsList": [
+      "Fall",
+      "Winter",
+      "Evening / Night",
+      "Special Occasion"
+    ],
+    "occasions": [
+      "Date Night",
+      "Evening / Night",
+      "Party / Clubbing",
+      "Special Occasion"
+    ]
+  },
+  {
+    "id": "90",
+    "name": "Odyssey Homme White Edition",
+    "brand": "Armaf",
+    "concentration": "EDP",
+    "category": "Arabian / Middle Eastern",
+    "volume": "100ml",
+    "price": "2199",
+    "originalPrice": "2700",
+    "rating": 4.38,
+    "votes": 1450,
+    "gender": "Masculine",
+    "inspiredBy": "Armani Stronger With You Freeze & Invictus Fusion DNA",
+    "accords": [
+      {
+        "name": "aromatic",
+        "percent": 90,
+        "color": "#43A047"
+      },
+      {
+        "name": "vanilla",
+        "percent": 85,
+        "color": "#FFE082"
+      },
+      {
+        "name": "sweet",
+        "percent": 82,
+        "color": "#E91E63"
+      },
+      {
+        "name": "aquatic",
+        "percent": 78,
+        "color": "#00ACC1"
+      },
+      {
+        "name": "woody",
+        "percent": 75,
+        "color": "#8D6E63"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Mint",
+        "Pink Pepper",
+        "Cardamom"
+      ],
+      "middleNotes": [
+        "Pineapple",
+        "Sage",
+        "Sea Notes"
+      ],
+      "baseNotes": [
+        "Vanilla",
+        "Amberwood",
+        "Cedarwood"
+      ],
+      "top": [
+        "Mint",
+        "Pink Pepper",
+        "Cardamom"
+      ],
+      "middle": [
+        "Pineapple",
+        "Sage",
+        "Sea Notes"
+      ],
+      "base": [
+        "Vanilla",
+        "Amberwood",
+        "Cedarwood"
+      ]
+    },
+    "seasons": {
+      "spring": 35,
+      "summer": 35,
+      "fall": 20,
+      "winter": 10,
+      "day": 70,
+      "night": 30
+    },
+    "performance": {
+      "longevity": "Long Lasting (7-9 hrs)",
+      "sillage": "Moderate to Strong"
+    },
+    "image": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.64466.2x.jpg",
+    "buyLinks": [
+      {
+        "name": "Armaf Official",
+        "url": "https://armafperfume.com/products/odyssey-white-edition-by-armaf-edp-for-men-100ml"
+      },
+      {
+        "name": "Belvish",
+        "url": "https://belvish.com/products/armaf-odyssey-homme-white-edition-edp-for-men"
+      }
+    ],
+    "description": "A versatile, modern crowd-pleaser that balances frosty freshness with creamy sweetness. Sparkles with icy mint, pink pepper, and juicy sweet pineapple before developing into a smooth, sensual drydown of comforting bourbon vanilla, amberwood, and crisp cedar.",
+    "seasonsList": [
+      "All Weather",
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasions": [
+      "Office / Work",
+      "Everyday Casual",
+      "Day Wear",
+      "Date Night"
+    ]
+  },
+  {
+    "id": "91",
+    "name": "Lattafa Musamam Black Intense",
+    "brand": "Lattafa",
+    "concentration": "EDP",
+    "category": "Arabian / Middle Eastern",
+    "volume": "100ml",
+    "price": "3499",
+    "originalPrice": "3499",
+    "rating": 4.62,
+    "votes": 2100,
+    "gender": "Unisex",
+    "inspiredBy": "Original Masterpiece by Jordi Fernández",
+    "accords": [
+      {
+        "name": "warm spicy",
+        "percent": 92,
+        "color": "#E64A19"
+      },
+      {
+        "name": "woody",
+        "percent": 88,
+        "color": "#8D6E63"
+      },
+      {
+        "name": "cacao",
+        "percent": 82,
+        "color": "#4E342E"
+      },
+      {
+        "name": "amber",
+        "percent": 78,
+        "color": "#FFA000"
+      },
+      {
+        "name": "aromatic",
+        "percent": 74,
+        "color": "#43A047"
+      },
+      {
+        "name": "sweet",
+        "percent": 70,
+        "color": "#E91E63"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Lavender",
+        "Nutmeg",
+        "Clary Sage",
+        "Bergamot"
+      ],
+      "middleNotes": [
+        "Cedarwood",
+        "Geranium",
+        "Mahonial",
+        "Rosyfolia"
+      ],
+      "baseNotes": [
+        "CocoaPulse",
+        "Tonka Bean",
+        "Maple Wood",
+        "Ambrofix",
+        "Patchouli"
+      ],
+      "top": [
+        "Lavender",
+        "Nutmeg",
+        "Clary Sage",
+        "Bergamot"
+      ],
+      "middle": [
+        "Cedarwood",
+        "Geranium",
+        "Mahonial",
+        "Rosyfolia"
+      ],
+      "base": [
+        "CocoaPulse",
+        "Tonka Bean",
+        "Maple Wood",
+        "Ambrofix",
+        "Patchouli"
+      ]
+    },
+    "seasons": {
+      "spring": 15,
+      "summer": 5,
+      "fall": 40,
+      "winter": 40,
+      "day": 25,
+      "night": 75
+    },
+    "performance": {
+      "longevity": "Eternal (10-12 hrs)",
+      "sillage": "Enormous"
+    },
+    "image": "https://fimgs.net/mdimg/perfume-thumbs/375x500.119987.jpg",
+    "buyLinks": [
+      {
+        "name": "Lattafa USA",
+        "url": "https://lattafa-usa.com/products/lattafa-musamam-black-intense-edp-100ml-spray"
+      },
+      {
+        "name": "Fragrantica",
+        "url": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Musamam-Black-Intense-119987.html"
+      }
+    ],
+    "description": "A dark, hypnotic creation crafted by senior perfumer Jordi Fernández. Blends soothing lavender and clary sage with a rich heart of cedar and proprietary captive florals, anchored by Givaudan's CocoaPulse™ accord, creamy tonka bean, and warm maple wood.",
+    "seasonsList": [
+      "Winter",
+      "Fall",
+      "Evening"
+    ],
+    "occasions": [
+      "Date Night",
+      "Special Occasion",
+      "Evening / Night",
+      "Party / Clubbing"
+    ]
+  },
+  {
+    "id": "92",
+    "name": "Rayhaan Terra",
+    "brand": "Rayhaan",
+    "concentration": "EDP",
+    "category": "Arabian / Middle Eastern",
+    "volume": "100ml",
+    "price": "2799",
+    "originalPrice": "2799",
+    "rating": 4.51,
+    "votes": 1450,
+    "gender": "Masculine",
+    "inspiredBy": "Amouage Interlude / Oriental Spicy Masterpiece",
+    "accords": [
+      {
+        "name": "warm spicy",
+        "percent": 94,
+        "color": "#E64A19"
+      },
+      {
+        "name": "amber",
+        "percent": 89,
+        "color": "#FFA000"
+      },
+      {
+        "name": "smoky",
+        "percent": 84,
+        "color": "#546E7A"
+      },
+      {
+        "name": "balsamic",
+        "percent": 80,
+        "color": "#D84315"
+      },
+      {
+        "name": "woody",
+        "percent": 76,
+        "color": "#8D6E63"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Cardamom",
+        "Elemi",
+        "Sichuan Pepper",
+        "Frankincense",
+        "Bergamot",
+        "Lemon"
+      ],
+      "middleNotes": [
+        "Patchouli",
+        "Saffron",
+        "Cumin",
+        "Coriander",
+        "Orange Blossom",
+        "Rose"
+      ],
+      "baseNotes": [
+        "Olibanum",
+        "Vanilla",
+        "Amber",
+        "Benzoin",
+        "Oud",
+        "Birch",
+        "Musk"
+      ],
+      "top": [
+        "Cardamom",
+        "Elemi",
+        "Sichuan Pepper",
+        "Frankincense",
+        "Bergamot",
+        "Lemon"
+      ],
+      "middle": [
+        "Patchouli",
+        "Saffron",
+        "Cumin",
+        "Coriander",
+        "Orange Blossom",
+        "Rose"
+      ],
+      "base": [
+        "Olibanum",
+        "Vanilla",
+        "Amber",
+        "Benzoin",
+        "Oud",
+        "Birch",
+        "Musk"
+      ]
+    },
+    "seasons": {
+      "spring": 15,
+      "summer": 5,
+      "fall": 40,
+      "winter": 40,
+      "day": 20,
+      "night": 80
+    },
+    "performance": {
+      "longevity": "Long Lasting (8-10 hrs)",
+      "sillage": "Strong"
+    },
+    "image": "https://fimgs.net/mdimg/perfume-thumbs/375x500.118549.jpg",
+    "buyLinks": [
+      {
+        "name": "Fragrantica",
+        "url": "https://www.fragrantica.com/perfume/Rayhaan/Terra-118549.html"
+      },
+      {
+        "name": "FragranceNet",
+        "url": "https://www.fragrancenet.com/cologne/rayhaan/rayhaan-terra/eau-de-parfum"
+      }
+    ],
+    "description": "An opulent, deeply textured oriental spicy fragrance. Opens with resinous elemi, Sichuan pepper, and smoky frankincense, developing into a rich heart of saffron and earthy patchouli atop a warm base of amber resins, oud, and bourbon vanilla.",
+    "seasonsList": [
+      "Winter",
+      "Fall"
+    ],
+    "occasions": [
+      "Evening / Night",
+      "Formal Wear",
+      "Special Occasion",
+      "Winter Gathering"
+    ]
+  },
+  {
+    "id": "93",
+    "name": "Rayhaan Elixir",
+    "brand": "Rayhaan",
+    "concentration": "EDP",
+    "category": "Arabian / Middle Eastern",
+    "volume": "100ml",
+    "price": "2699",
+    "originalPrice": "2699",
+    "rating": 4.58,
+    "votes": 2800,
+    "gender": "Masculine",
+    "inspiredBy": "Jean Paul Gaultier Le Male Elixir",
+    "accords": [
+      {
+        "name": "vanilla",
+        "percent": 95,
+        "color": "#FFE082"
+      },
+      {
+        "name": "sweet",
+        "percent": 92,
+        "color": "#E91E63"
+      },
+      {
+        "name": "amber",
+        "percent": 86,
+        "color": "#FFA000"
+      },
+      {
+        "name": "aromatic",
+        "percent": 80,
+        "color": "#43A047"
+      },
+      {
+        "name": "warm spicy",
+        "percent": 74,
+        "color": "#E64A19"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Mint",
+        "Bergamot"
+      ],
+      "middleNotes": [
+        "Lavender",
+        "Benzoin"
+      ],
+      "baseNotes": [
+        "Vanilla",
+        "Tonka Bean",
+        "Honey"
+      ],
+      "top": [
+        "Mint",
+        "Bergamot"
+      ],
+      "middle": [
+        "Lavender",
+        "Benzoin"
+      ],
+      "base": [
+        "Vanilla",
+        "Tonka Bean",
+        "Honey"
+      ]
+    },
+    "seasons": {
+      "spring": 15,
+      "summer": 5,
+      "fall": 40,
+      "winter": 40,
+      "day": 25,
+      "night": 75
+    },
+    "performance": {
+      "longevity": "Long Lasting (9-11 hrs)",
+      "sillage": "Enormous"
+    },
+    "image": "https://fimgs.net/mdimg/perfume-thumbs/375x500.95265.jpg",
+    "buyLinks": [
+      {
+        "name": "Fragrantica",
+        "url": "https://www.fragrantica.com/perfume/Rayhaan/Rayhaan-Elixir-95265.html"
+      }
+    ],
+    "description": "A celebrated interpretation of Jean Paul Gaultier Le Male Elixir. Sensual mint and bergamot meet soothing lavender and balsamic benzoin, melting into an intoxicating base of roasted tonka bean, golden honey, and rich vanilla.",
+    "seasonsList": [
+      "Winter",
+      "Fall"
+    ],
+    "occasions": [
+      "Date Night",
+      "Party / Clubbing",
+      "Evening / Night"
+    ]
+  },
+  {
+    "id": "94",
+    "name": "Rayhaan Aquatica",
+    "brand": "Rayhaan",
+    "concentration": "EDP",
+    "category": "Arabian / Middle Eastern",
+    "volume": "100ml",
+    "price": "2599",
+    "originalPrice": "2599",
+    "rating": 4.48,
+    "votes": 1600,
+    "gender": "Unisex",
+    "inspiredBy": "Creed Virgin Island Water",
+    "accords": [
+      {
+        "name": "citrus",
+        "percent": 94,
+        "color": "#FDD835"
+      },
+      {
+        "name": "coconut",
+        "percent": 90,
+        "color": "#E0F2F1"
+      },
+      {
+        "name": "sweet",
+        "percent": 85,
+        "color": "#E91E63"
+      },
+      {
+        "name": "tropical",
+        "percent": 82,
+        "color": "#FF7043"
+      },
+      {
+        "name": "fresh",
+        "percent": 78,
+        "color": "#26C6DA"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Lime",
+        "Coconut Milk",
+        "Bergamot",
+        "Sicilian Mandarin"
+      ],
+      "middleNotes": [
+        "Sugar Cane",
+        "Jasmine",
+        "Hibiscus",
+        "Gardenia"
+      ],
+      "baseNotes": [
+        "White Rum",
+        "Musk",
+        "Tonka Bean",
+        "Patchouli"
+      ],
+      "top": [
+        "Lime",
+        "Coconut Milk",
+        "Bergamot",
+        "Sicilian Mandarin"
+      ],
+      "middle": [
+        "Sugar Cane",
+        "Jasmine",
+        "Hibiscus",
+        "Gardenia"
+      ],
+      "base": [
+        "White Rum",
+        "Musk",
+        "Tonka Bean",
+        "Patchouli"
+      ]
+    },
+    "seasons": {
+      "spring": 35,
+      "summer": 50,
+      "fall": 10,
+      "winter": 5,
+      "day": 80,
+      "night": 20
+    },
+    "performance": {
+      "longevity": "Long Lasting (7-8 hrs)",
+      "sillage": "Moderate to Strong"
+    },
+    "image": "https://fimgs.net/mdimg/perfume-thumbs/375x500.120605.jpg",
+    "buyLinks": [
+      {
+        "name": "Fragrantica",
+        "url": "https://www.fragrantica.com/perfume/Rayhaan/Aquatica-120605.html"
+      }
+    ],
+    "description": "A refreshing tropical paradise inspired by Creed Virgin Island Water. Opens with zesty crushed lime, juicy mandarin, and creamy coconut milk, layered over sugar cane sweetness, exotic island florals, and Caribbean white rum.",
+    "seasonsList": [
+      "Summer",
+      "Spring",
+      "Monsoon"
+    ],
+    "occasions": [
+      "Beach / Vacation",
+      "Casual / Daily",
+      "Summer Daytime",
+      "Gym / Active"
+    ]
+  },
+  {
+    "id": "95",
+    "name": "Rasasi Hawas Tropical",
+    "brand": "Rasasi",
+    "concentration": "EDP",
+    "category": "Arabian / Middle Eastern",
+    "volume": "100ml",
+    "price": "3699",
+    "originalPrice": "3699",
+    "rating": 4.55,
+    "votes": 2300,
+    "gender": "Masculine",
+    "inspiredBy": "Original Hawas Flanker (Tropical Summer Edition)",
+    "accords": [
+      {
+        "name": "coconut",
+        "percent": 93,
+        "color": "#E0F2F1"
+      },
+      {
+        "name": "green",
+        "percent": 88,
+        "color": "#66BB6A"
+      },
+      {
+        "name": "fruity",
+        "percent": 84,
+        "color": "#FF7043"
+      },
+      {
+        "name": "sweet",
+        "percent": 79,
+        "color": "#E91E63"
+      },
+      {
+        "name": "woody",
+        "percent": 72,
+        "color": "#8D6E63"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Coconut Water",
+        "Fig Leaf",
+        "Fresh Ginger"
+      ],
+      "middleNotes": [
+        "Coconut Flesh",
+        "Ripe Fig",
+        "Cool Mint"
+      ],
+      "baseNotes": [
+        "Sandalwood",
+        "Tonka Bean",
+        "Clean Musk"
+      ],
+      "top": [
+        "Coconut Water",
+        "Fig Leaf",
+        "Fresh Ginger"
+      ],
+      "middle": [
+        "Coconut Flesh",
+        "Ripe Fig",
+        "Cool Mint"
+      ],
+      "base": [
+        "Sandalwood",
+        "Tonka Bean",
+        "Clean Musk"
+      ]
+    },
+    "seasons": {
+      "spring": 35,
+      "summer": 50,
+      "fall": 10,
+      "winter": 5,
+      "day": 75,
+      "night": 25
+    },
+    "performance": {
+      "longevity": "Long Lasting (8-9 hrs)",
+      "sillage": "Strong"
+    },
+    "image": "https://fimgs.net/mdimg/perfume-thumbs/375x500.108054.jpg",
+    "buyLinks": [
+      {
+        "name": "Fragrantica",
+        "url": "https://www.fragrantica.com/perfume/Rasasi/Hawas-for-Him-Tropical-108054.html"
+      }
+    ],
+    "description": "A sun-drenched, exotic twist on the legendary Rasasi Hawas DNA. Infused with hydrating coconut water, lush Mediterranean fig leaf, and cooling mint, settling into a rich, woody-creamy base of sandalwood and sun-warmed tonka bean.",
+    "seasonsList": [
+      "Summer",
+      "Spring",
+      "Monsoon"
+    ],
+    "occasions": [
+      "Everyday Casual",
+      "Beach / Vacation",
+      "Day Wear",
+      "Summer Daytime"
+    ]
+  },
+  {
+    "id": "96",
+    "name": "Engage Brazilian Maracuja Cognac",
+    "brand": "Engage",
+    "concentration": "EDP",
+    "category": "Designer",
+    "volume": "100ml",
+    "price": "999",
+    "originalPrice": "1299",
+    "rating": 4.42,
+    "votes": 980,
+    "gender": "Masculine",
+    "inspiredBy": "Original Fruity-Boozy Creation by Olivier Miles (Takasago)",
+    "accords": [
+      {
+        "name": "fruity",
+        "percent": 92,
+        "color": "#FF7043"
+      },
+      {
+        "name": "warm spicy",
+        "percent": 86,
+        "color": "#E64A19"
+      },
+      {
+        "name": "amber",
+        "percent": 80,
+        "color": "#FFA000"
+      },
+      {
+        "name": "woody",
+        "percent": 75,
+        "color": "#8D6E63"
+      },
+      {
+        "name": "leather",
+        "percent": 70,
+        "color": "#5D4037"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Brazilian Maracuja",
+        "Grapefruit",
+        "Papaya"
+      ],
+      "middleNotes": [
+        "Rose",
+        "Cedarwood",
+        "Green Dew",
+        "Vetiver"
+      ],
+      "baseNotes": [
+        "French Cognac",
+        "Leather",
+        "Amber",
+        "Smoky Woods"
+      ],
+      "top": [
+        "Brazilian Maracuja",
+        "Grapefruit",
+        "Papaya"
+      ],
+      "middle": [
+        "Rose",
+        "Cedarwood",
+        "Green Dew",
+        "Vetiver"
+      ],
+      "base": [
+        "French Cognac",
+        "Leather",
+        "Amber",
+        "Smoky Woods"
+      ]
+    },
+    "seasons": {
+      "spring": 25,
+      "summer": 20,
+      "fall": 30,
+      "winter": 25,
+      "day": 45,
+      "night": 55
+    },
+    "performance": {
+      "longevity": "Long Lasting (7-8 hrs)",
+      "sillage": "Moderate to Strong"
+    },
+    "image": "https://images-static.nykaa.com/media/catalog/product/9/1/91cfd90ENGAG00000091_1i.jpg",
+    "buyLinks": [
+      {
+        "name": "Nykaa",
+        "url": "https://www.nykaa.com/engage-brazilian-maracuja-cognac-eau-de-parfum-for-men/p/15291456"
+      },
+      {
+        "name": "Engage Official",
+        "url": "https://www.engageshop.in/products/engage-brazilian-maracuja-cognac-eau-de-parfum-100ml"
+      }
+    ],
+    "description": "A bold, exotic boozy creation crafted by master perfumer Olivier Miles (Takasago). Opens with lush Brazilian passionfruit (maracuja) and ripe papaya, leading into a woody-aromatic heart grounded by rich French cognac, smoky oud, and smooth leather.",
+    "seasonsList": [
+      "All Weather",
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasions": [
+      "Date Night",
+      "Evening / Night",
+      "Special Occasion",
+      "Casual / Daily"
+    ]
+  },
+  {
+    "id": "97",
+    "name": "Rayhaan Vantage",
+    "brand": "Rayhaan",
+    "concentration": "EDP",
+    "category": "Arabian / Middle Eastern",
+    "volume": "100ml",
+    "price": "2699",
+    "originalPrice": "2699",
+    "rating": 4.53,
+    "votes": 1350,
+    "gender": "Unisex",
+    "inspiredBy": "Spicy Resinous Balsamic Extrait",
+    "accords": [
+      {
+        "name": "warm spicy",
+        "percent": 94,
+        "color": "#E64A19"
+      },
+      {
+        "name": "amber",
+        "percent": 88,
+        "color": "#FFA000"
+      },
+      {
+        "name": "woody",
+        "percent": 84,
+        "color": "#8D6E63"
+      },
+      {
+        "name": "aromatic",
+        "percent": 78,
+        "color": "#43A047"
+      },
+      {
+        "name": "smoky",
+        "percent": 72,
+        "color": "#546E7A"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Pink Pepper",
+        "Cardamom",
+        "Bergamot"
+      ],
+      "middleNotes": [
+        "Frankincense",
+        "Myrrh",
+        "Juniper Berries"
+      ],
+      "baseNotes": [
+        "Cedarwood",
+        "Patchouli",
+        "Ambergris"
+      ],
+      "top": [
+        "Pink Pepper",
+        "Cardamom",
+        "Bergamot"
+      ],
+      "middle": [
+        "Frankincense",
+        "Myrrh",
+        "Juniper Berries"
+      ],
+      "base": [
+        "Cedarwood",
+        "Patchouli",
+        "Ambergris"
+      ]
+    },
+    "seasons": {
+      "spring": 20,
+      "summer": 10,
+      "fall": 35,
+      "winter": 35,
+      "day": 30,
+      "night": 70
+    },
+    "performance": {
+      "longevity": "Long Lasting (8-10 hrs)",
+      "sillage": "Strong"
+    },
+    "image": "https://fimgs.net/mdimg/perfume-thumbs/375x500.143352.jpg",
+    "buyLinks": [
+      {
+        "name": "Fragrantica",
+        "url": "https://www.fragrantica.com/perfume/Rayhaan/Vantage-143352.html"
+      }
+    ],
+    "description": "A sophisticated, spicy-resinous masterpiece. Invigorates with pink pepper, aromatic cardamom, and bergamot, evolving into an opulent heart of sacred frankincense, rich myrrh, and juniper, anchored by deep cedarwood and patchouli.",
+    "seasonsList": [
+      "Winter",
+      "Fall",
+      "Evening"
+    ],
+    "occasions": [
+      "Evening / Night",
+      "Formal Wear",
+      "Special Occasion",
+      "Date Night"
+    ]
+  },
+  {
+    "id": "98",
+    "name": "Velixir Asteria",
+    "brand": "Velixir",
+    "concentration": "Extrait",
+    "category": "Arabian / Middle Eastern",
+    "volume": "100ml",
+    "price": "2799",
+    "originalPrice": "2799",
+    "rating": 4.61,
+    "votes": 1200,
+    "gender": "Unisex",
+    "inspiredBy": "Louis Vuitton City of Stars",
+    "accords": [
+      {
+        "name": "citrus",
+        "percent": 94,
+        "color": "#FDD835"
+      },
+      {
+        "name": "white floral",
+        "percent": 88,
+        "color": "#EEEEEE"
+      },
+      {
+        "name": "powdery",
+        "percent": 82,
+        "color": "#CFD8DC"
+      },
+      {
+        "name": "sweet",
+        "percent": 78,
+        "color": "#E91E63"
+      },
+      {
+        "name": "musky",
+        "percent": 74,
+        "color": "#B0BEC5"
+      },
+      {
+        "name": "tropical",
+        "percent": 70,
+        "color": "#FF7043"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Blood Orange",
+        "Mandarin Orange",
+        "Lemon",
+        "Bergamot"
+      ],
+      "middleNotes": [
+        "Tiare Flower",
+        "Monoi"
+      ],
+      "baseNotes": [
+        "Powdery Notes",
+        "Clean Musk",
+        "Sandalwood"
+      ],
+      "top": [
+        "Blood Orange",
+        "Mandarin Orange",
+        "Lemon",
+        "Bergamot"
+      ],
+      "middle": [
+        "Tiare Flower",
+        "Monoi"
+      ],
+      "base": [
+        "Powdery Notes",
+        "Clean Musk",
+        "Sandalwood"
+      ]
+    },
+    "seasons": {
+      "spring": 35,
+      "summer": 45,
+      "fall": 15,
+      "winter": 5,
+      "day": 80,
+      "night": 20
+    },
+    "performance": {
+      "longevity": "Long Lasting (8-10 hrs)",
+      "sillage": "Strong"
+    },
+    "image": "https://fimgs.net/mdimg/perfume-thumbs/375x500.127608.jpg",
+    "buyLinks": [
+      {
+        "name": "Fragrantica",
+        "url": "https://www.fragrantica.com/perfume/Velixir/Asteria-127608.html"
+      },
+      {
+        "name": "Velixir Official",
+        "url": "https://velixir.co.uk/products/asteria"
+      }
+    ],
+    "description": "A radiant, sun-kissed interpretation of Louis Vuitton City of Stars. Opens with an electrifying splash of juicy blood orange, red mandarin, lemon, and Italian bergamot, developing into an exotic creamy heart of Tahitian tiare flower resting on clean musk, silky sandalwood, and luminous powdery notes.",
+    "seasonsList": [
+      "Summer",
+      "Spring",
+      "Monsoon"
+    ],
+    "occasions": [
+      "Casual / Daily",
+      "Day Wear",
+      "Beach / Vacation",
+      "Summer Daytime"
+    ]
   }
 ];
-
 export const ACCORD_COLORS = {
   "woody": "#8D6E63",
   "citrus": "#FDD835",
