@@ -83,7 +83,7 @@ const Navbar = ({
                 }`}
               >
                 <FlaskIcon size={13} animateOnHover={true} className="flex-shrink-0" />
-                <span className="hidden sm:inline">Perfume Finder</span>
+                <span className="hidden sm:inline">Scent Finder</span>
                 <span className="sm:hidden">Finder</span>
               </button>
             </div>

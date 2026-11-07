@@ -10253,6 +10253,235 @@ export const perfumes = [
       "Beach / Vacation",
       "Summer Daytime"
     ]
+  },
+  {
+    "id": "99",
+    "name": "Ajmal Amber Wood",
+    "brand": "Ajmal",
+    "concentration": "EDP",
+    "category": "Arabian / Middle Eastern",
+    "volume": "100ml",
+    "price": "10500",
+    "originalPrice": "14000",
+    "rating": 4.65,
+    "votes": 1850,
+    "gender": "Unisex",
+    "accords": [
+      {
+        "name": "amber",
+        "percent": 96,
+        "color": "#FFA000"
+      },
+      {
+        "name": "woody",
+        "percent": 92,
+        "color": "#8D6E63"
+      },
+      {
+        "name": "warm spicy",
+        "percent": 85,
+        "color": "#E64A19"
+      },
+      {
+        "name": "aromatic",
+        "percent": 78,
+        "color": "#43A047"
+      },
+      {
+        "name": "powdery",
+        "percent": 72,
+        "color": "#CFD8DC"
+      },
+      {
+        "name": "fresh spicy",
+        "percent": 66,
+        "color": "#26C6DA"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Apple",
+        "White Pepper",
+        "Lavender",
+        "Cardamom"
+      ],
+      "middleNotes": [
+        "Woody Notes",
+        "Orris",
+        "Cedarwood"
+      ],
+      "baseNotes": [
+        "Amber",
+        "Amberwood",
+        "Patchouli"
+      ],
+      "top": [
+        "Apple",
+        "White Pepper",
+        "Lavender",
+        "Cardamom"
+      ],
+      "middle": [
+        "Woody Notes",
+        "Orris",
+        "Cedarwood"
+      ],
+      "base": [
+        "Amber",
+        "Amberwood",
+        "Patchouli"
+      ]
+    },
+    "seasons": {
+      "spring": 20,
+      "summer": 10,
+      "fall": 40,
+      "winter": 50,
+      "day": 30,
+      "night": 70
+    },
+    "performance": {
+      "longevity": "Eternal (12+ hrs)",
+      "sillage": "Heavy"
+    },
+    "image": "https://in.ajmal.com/cdn/shop/files/AMBERWOOD_EDP_FORWOMEN_100ML_1.jpg",
+    "buyLinks": [
+      {
+        "name": "Ajmal India Official",
+        "url": "https://in.ajmal.com/products/amber-wood-eau-de-parfum-perfume-100ml-for-unisex/"
+      }
+    ],
+    "description": "Ajmal's crowning masterpiece from the W Series. Amber Wood is a deep, warm, and opulent fragrance built around rich golden amber, aromatic white pepper, crisp apple, refined orris, and smoky cedarwood. A benchmark of Middle Eastern luxury.",
+    "seasonsList": [
+      "Winter",
+      "Monsoon",
+      "All Weather"
+    ],
+    "occasions": [
+      "Evening / Night",
+      "Date Night",
+      "Special Occasion",
+      "Party / Clubbing"
+    ]
+  },
+  {
+    "id": "100",
+    "name": "Xerjoff Alexandria II",
+    "brand": "Xerjoff",
+    "concentration": "EDP",
+    "category": "Niche",
+    "volume": "50ml",
+    "price": "35200",
+    "originalPrice": "35200",
+    "rating": 4.72,
+    "votes": 3400,
+    "gender": "Unisex",
+    "accords": [
+      {
+        "name": "woody",
+        "percent": 96,
+        "color": "#8D6E63"
+      },
+      {
+        "name": "amber",
+        "percent": 90,
+        "color": "#FFA000"
+      },
+      {
+        "name": "warm spicy",
+        "percent": 86,
+        "color": "#E64A19"
+      },
+      {
+        "name": "oud",
+        "percent": 82,
+        "color": "#4E342E"
+      },
+      {
+        "name": "powdery",
+        "percent": 78,
+        "color": "#CFD8DC"
+      },
+      {
+        "name": "aromatic",
+        "percent": 74,
+        "color": "#43A047"
+      },
+      {
+        "name": "floral",
+        "percent": 70,
+        "color": "#F48FB1"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Palisander Rosewood",
+        "Lavender",
+        "Cinnamon",
+        "Apple"
+      ],
+      "middleNotes": [
+        "Rose",
+        "Cedar",
+        "Lily-of-the-Valley"
+      ],
+      "baseNotes": [
+        "Laotian Oud",
+        "Amber",
+        "Sandalwood",
+        "Vanilla",
+        "Musk"
+      ],
+      "top": [
+        "Palisander Rosewood",
+        "Lavender",
+        "Cinnamon",
+        "Apple"
+      ],
+      "middle": [
+        "Rose",
+        "Cedar",
+        "Lily-of-the-Valley"
+      ],
+      "base": [
+        "Laotian Oud",
+        "Amber",
+        "Sandalwood",
+        "Vanilla",
+        "Musk"
+      ]
+    },
+    "seasons": {
+      "spring": 25,
+      "summer": 10,
+      "fall": 40,
+      "winter": 55,
+      "day": 20,
+      "night": 80
+    },
+    "performance": {
+      "longevity": "Eternal (14+ hrs)",
+      "sillage": "Enormous"
+    },
+    "image": "https://mdpindia.com/cdn/shop/products/Alexendria-II_900x.jpg",
+    "buyLinks": [
+      {
+        "name": "Maison Des Parfums India",
+        "url": "https://mdpindia.com/products/alexandria-ii-eau-de-parfum"
+      }
+    ],
+    "description": "The crown jewel of Xerjoff's Oud Stars collection, inspired by the ancient capital of Alexandria. Opens with majestic Palisander rosewood, soothing French lavender, and spicy cinnamon, melting into a heart of Bulgarian rose and cedar before drying down into precious aged Laotian oud, creamy sandalwood, amber, and vanilla.",
+    "seasonsList": [
+      "Winter",
+      "Monsoon",
+      "All Weather"
+    ],
+    "occasions": [
+      "Evening / Night",
+      "Special Occasion",
+      "Formal / Black Tie",
+      "Date Night"
+    ]
   }
 ];
 export const ACCORD_COLORS = {

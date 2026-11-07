@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpIcon } from 'lucide-animated';
 import Navbar from './components/Navbar.jsx';
 import VaultView from './components/VaultView.jsx';
@@ -56,6 +56,24 @@ function App() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingPerfume, setEditingPerfume] = useState(null);
 
+  // Scroll Restoration on mobile / back navigation
+  const lastScrollYRef = useRef(0);
+  const prevSelectedPerfumeRef = useRef(selectedPerfume);
+
+  // Restore scroll position when returning from PerfumeDetailPage
+  useEffect(() => {
+    if (prevSelectedPerfumeRef.current && !selectedPerfume) {
+      const restoreY = lastScrollYRef.current;
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: restoreY, left: 0, behavior: 'instant' });
+        setTimeout(() => {
+          window.scrollTo({ top: restoreY, left: 0, behavior: 'instant' });
+        }, 30);
+      });
+    }
+    prevSelectedPerfumeRef.current = selectedPerfume;
+  }, [selectedPerfume]);
+
   // Listen to popstate and hashchange to react dynamically to 404, query params, or route changes
   useEffect(() => {
     const handleRoute = () => {
@@ -102,11 +120,12 @@ function App() {
 
   // Open Full Detail Page with URL deep-link
   const handleSelectPerfume = (perfume) => {
+    lastScrollYRef.current = window.scrollY || window.pageYOffset || 0;
     setSelectedPerfume(perfume);
     if (typeof window !== 'undefined') {
       window.history.pushState({ perfumeId: perfume.id }, '', `/?perfume=${perfume.id}`);
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   // Back from Detail Page to Collection
@@ -115,7 +134,6 @@ function App() {
     if (typeof window !== 'undefined') {
       window.history.pushState(null, '', '/');
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Add / Edit Perfume
@@ -190,29 +208,37 @@ function App() {
         {isNotFound ? (
           /* Custom 404 Olfactory Trail Lost / Evaporated Flacon View */
           <NotFoundPage onReturnHome={handleReturnHome} />
-        ) : selectedPerfume ? (
-          /* Full Detail Page View */
-          <PerfumeDetailPage
-            perfume={selectedPerfume}
-            onBack={handleBackToCollection}
-            onEdit={handleEditFromDetail}
-          />
-        ) : activeTab === 'test' ? (
-          /* Interactive Scent Taste Test & Note Matcher */
-          <ScentTasteMatcher
-            perfumes={perfumes}
-            onSelectPerfume={handleSelectPerfume}
-          />
         ) : (
-          /* Main Fragrance Collection Showcase */
-          <VaultView
-            perfumes={perfumes}
-            searchQuery={searchQuery}
-            sortBy={sortBy}
-            setSortBy={setSortBy}
-            viewMode={viewMode}
-            onSelectPerfume={handleSelectPerfume}
-          />
+          <>
+            {/* Full Detail Page View */}
+            {selectedPerfume && (
+              <PerfumeDetailPage
+                perfume={selectedPerfume}
+                onBack={handleBackToCollection}
+                onEdit={handleEditFromDetail}
+              />
+            )}
+
+            {/* Keep Main Views Mounted so loaded items (visibleCount), filter states, and scroll heights are strictly preserved */}
+            <div className={selectedPerfume ? 'hidden' : 'block'}>
+              <div className={activeTab === 'test' ? 'block' : 'hidden'}>
+                <ScentTasteMatcher
+                  perfumes={perfumes}
+                  onSelectPerfume={handleSelectPerfume}
+                />
+              </div>
+              <div className={activeTab === 'collection' ? 'block' : 'hidden'}>
+                <VaultView
+                  perfumes={perfumes}
+                  searchQuery={searchQuery}
+                  sortBy={sortBy}
+                  setSortBy={setSortBy}
+                  viewMode={viewMode}
+                  onSelectPerfume={handleSelectPerfume}
+                />
+              </div>
+            </div>
+          </>
         )}
       </main>
 

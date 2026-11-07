@@ -5,7 +5,8 @@ import {
   LayersIcon,
   CalendarDaysIcon,
   SunIcon,
-  ArrowDown01Icon
+  ArrowDown01Icon,
+  IndianRupeeIcon
 } from 'lucide-animated';
 import PerfumeCard from './PerfumeCard.jsx';
 import LuxuryDropdown from './LuxuryDropdown.jsx';
@@ -32,6 +33,9 @@ const VaultView = ({
 }) => {
   const [activeQuickFilter, setActiveQuickFilter] = useState('all');
   const [selectedBrand, setSelectedBrand] = useState('all');
+  const [selectedPriceRange, setSelectedPriceRange] = useState('all');
+  const [customMinPrice, setCustomMinPrice] = useState('');
+  const [customMaxPrice, setCustomMaxPrice] = useState('');
   const [selectedSeason, setSelectedSeason] = useState('all');
   const [selectedOccasion, setSelectedOccasion] = useState('all');
 
@@ -42,7 +46,7 @@ const VaultView = ({
   // Reset visibleCount back to 12 whenever filters or search change
   useEffect(() => {
     setVisibleCount(12);
-  }, [searchQuery, selectedBrand, selectedSeason, selectedOccasion, sortBy, activeQuickFilter]);
+  }, [searchQuery, selectedBrand, selectedPriceRange, customMinPrice, customMaxPrice, selectedSeason, selectedOccasion, sortBy, activeQuickFilter]);
 
   // Extract unique brands with counts
   const brandList = useMemo(() => {
@@ -90,6 +94,45 @@ const VaultView = ({
     { value: 'price-high', label: 'Price: High to Low' }
   ];
 
+  // Price range options with live perfume count
+  const priceOptions = useMemo(() => {
+    const countUnder1k = perfumes.filter((p) => (parseInt(p.price) || 0) < 1000).length;
+    const count1to2k = perfumes.filter((p) => {
+      const pr = parseInt(p.price) || 0;
+      return pr >= 1000 && pr <= 2000;
+    }).length;
+    const count2to35k = perfumes.filter((p) => {
+      const pr = parseInt(p.price) || 0;
+      return pr > 2000 && pr <= 3500;
+    }).length;
+    const count35to5k = perfumes.filter((p) => {
+      const pr = parseInt(p.price) || 0;
+      return pr > 3500 && pr <= 5000;
+    }).length;
+    const countAbove5k = perfumes.filter((p) => (parseInt(p.price) || 0) > 5000).length;
+
+    let customLabel = 'Custom Range...';
+    if (selectedPriceRange === 'custom') {
+      if (customMinPrice && customMaxPrice) {
+        customLabel = `₹${Number(customMinPrice).toLocaleString('en-IN')} - ₹${Number(customMaxPrice).toLocaleString('en-IN')}`;
+      } else if (customMinPrice) {
+        customLabel = `Min ₹${Number(customMinPrice).toLocaleString('en-IN')}`;
+      } else if (customMaxPrice) {
+        customLabel = `Max ₹${Number(customMaxPrice).toLocaleString('en-IN')}`;
+      }
+    }
+
+    return [
+      { value: 'all', label: 'All Prices', count: perfumes.length },
+      { value: 'under-1000', label: 'Under ₹1,000', count: countUnder1k },
+      { value: '1000-2000', label: '₹1,000 – ₹2,000', count: count1to2k },
+      { value: '2000-3500', label: '₹2,000 – ₹3,500', count: count2to35k },
+      { value: '3500-5000', label: '₹3,500 – ₹5,000', count: count35to5k },
+      { value: 'above-5000', label: 'Above ₹5,000', count: countAbove5k },
+      { value: 'custom', label: customLabel }
+    ];
+  }, [perfumes, selectedPriceRange, customMinPrice, customMaxPrice]);
+
   // Quick filter handler
   const handleQuickFilterClick = (filter) => {
     setActiveQuickFilter(filter.id);
@@ -108,6 +151,9 @@ const VaultView = ({
   const handleResetFilters = () => {
     setActiveQuickFilter('all');
     setSelectedBrand('all');
+    setSelectedPriceRange('all');
+    setCustomMinPrice('');
+    setCustomMaxPrice('');
     setSelectedSeason('all');
     setSelectedOccasion('all');
   };
@@ -115,6 +161,7 @@ const VaultView = ({
   const hasActiveFilters =
     activeQuickFilter !== 'all' ||
     selectedBrand !== 'all' ||
+    selectedPriceRange !== 'all' ||
     selectedSeason !== 'all' ||
     selectedOccasion !== 'all' ||
     Boolean(searchQuery.trim());
@@ -199,6 +246,21 @@ const VaultView = ({
           if (!matches) return false;
         }
 
+        // Price Range filter
+        if (selectedPriceRange !== 'all') {
+          const price = parseInt(perfume.price) || 0;
+          if (selectedPriceRange === 'under-1000' && price >= 1000) return false;
+          if (selectedPriceRange === '1000-2000' && (price < 1000 || price > 2000)) return false;
+          if (selectedPriceRange === '2000-3500' && (price <= 2000 || price > 3500)) return false;
+          if (selectedPriceRange === '3500-5000' && (price <= 3500 || price > 5000)) return false;
+          if (selectedPriceRange === 'above-5000' && price <= 5000) return false;
+          if (selectedPriceRange === 'custom') {
+            const min = customMinPrice !== '' ? parseInt(customMinPrice) || 0 : 0;
+            const max = customMaxPrice !== '' ? parseInt(customMaxPrice) || Infinity : Infinity;
+            if (price < min || price > max) return false;
+          }
+        }
+
         return true;
       })
       .sort((a, b) => {
@@ -218,6 +280,9 @@ const VaultView = ({
     perfumes,
     searchQuery,
     selectedBrand,
+    selectedPriceRange,
+    customMinPrice,
+    customMaxPrice,
     selectedSeason,
     selectedOccasion,
     sortBy
@@ -277,7 +342,7 @@ const VaultView = ({
 
       {/* 2. Structured Filter Controls Bar */}
       <div className="vault-panel rounded-xl p-3 border border-white/[0.08] space-y-3">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5">
           {/* Brand Filter */}
           <div>
             <LuxuryDropdown
@@ -287,6 +352,19 @@ const VaultView = ({
               icon={LayersIcon}
               searchable={true}
               placeholder="All Brands"
+            />
+          </div>
+
+          {/* Price Range Filter */}
+          <div>
+            <LuxuryDropdown
+              value={selectedPriceRange}
+              onChange={(val) => {
+                setSelectedPriceRange(val);
+              }}
+              options={priceOptions}
+              icon={IndianRupeeIcon}
+              placeholder="All Prices"
             />
           </div>
 
@@ -319,7 +397,7 @@ const VaultView = ({
           </div>
 
           {/* Sort Dropdown */}
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <LuxuryDropdown
               value={sortBy}
               onChange={setSortBy}
@@ -330,12 +408,136 @@ const VaultView = ({
           </div>
         </div>
 
+        {/* Expandable Custom Price Range Drawer */}
+        {selectedPriceRange === 'custom' && (
+          <div className="p-3 bg-[#0d0d0d] border border-amber-400/25 rounded-xl space-y-2.5 shadow-lg animate-fadeIn">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-200">
+                <IndianRupeeIcon size={13} className="text-amber-400" />
+                <span>Custom Budget Range</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedPriceRange('all');
+                  setCustomMinPrice('');
+                  setCustomMaxPrice('');
+                }}
+                className="text-[11px] text-neutral-400 hover:text-white transition flex items-center gap-1"
+              >
+                <XIcon size={11} />
+                <span>Close</span>
+              </button>
+            </div>
+
+            {/* Inputs: Min Price & Max Price */}
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <label className="text-[10px] text-neutral-400 uppercase tracking-wider block mb-1">
+                  Minimum Price
+                </label>
+                <div className="relative">
+                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-neutral-500 text-xs font-mono">₹</span>
+                  <input
+                    type="number"
+                    min="0"
+                    step="100"
+                    value={customMinPrice}
+                    onChange={(e) => setCustomMinPrice(e.target.value)}
+                    placeholder="Min (e.g. 1000)"
+                    className="w-full pl-6 pr-2.5 py-1.5 bg-[#141414] border border-white/10 rounded-lg text-xs text-white font-mono placeholder-neutral-500 focus:outline-none focus:border-amber-400/50"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="text-[10px] text-neutral-400 uppercase tracking-wider block mb-1">
+                  Maximum Price
+                </label>
+                <div className="relative">
+                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-neutral-500 text-xs font-mono">₹</span>
+                  <input
+                    type="number"
+                    min="0"
+                    step="100"
+                    value={customMaxPrice}
+                    onChange={(e) => setCustomMaxPrice(e.target.value)}
+                    placeholder="Max (e.g. 3500)"
+                    className="w-full pl-6 pr-2.5 py-1.5 bg-[#141414] border border-white/10 rounded-lg text-xs text-white font-mono placeholder-neutral-500 focus:outline-none focus:border-amber-400/50"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Quick helper chips */}
+            <div className="flex flex-wrap items-center gap-1.5 pt-1 border-t border-white/[0.06]">
+              <span className="text-[10px] uppercase tracking-wider text-neutral-500 font-medium mr-1">Quick:</span>
+              {[
+                { label: 'Under 1k', min: '', max: '1000' },
+                { label: '1k - 2k', min: '1000', max: '2000' },
+                { label: '2k - 3.5k', min: '2000', max: '3500' },
+                { label: '3.5k - 5k', min: '3500', max: '5000' },
+                { label: '5k+', min: '5000', max: '' }
+              ].map((p) => {
+                const isPresetActive = customMinPrice === p.min && customMaxPrice === p.max;
+                return (
+                  <button
+                    key={p.label}
+                    type="button"
+                    onClick={() => {
+                      setCustomMinPrice(p.min);
+                      setCustomMaxPrice(p.max);
+                    }}
+                    className={`px-2 py-0.5 rounded text-[10px] border transition active:scale-95 ${
+                      isPresetActive
+                        ? 'bg-amber-400 text-black border-amber-300 font-semibold'
+                        : 'bg-[#161616] hover:bg-[#202020] text-neutral-300 hover:text-white border-white/[0.08]'
+                    }`}
+                  >
+                    {p.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         {/* Filter Results & Reset Action */}
         <div className="flex flex-wrap items-center justify-between gap-2 pt-1.5 border-t border-white/[0.06] text-xs text-neutral-400">
           <div className="flex flex-wrap items-center gap-1.5 min-w-0">
             <span className="whitespace-nowrap">
               Showing: <strong className="text-white font-semibold">{filteredPerfumes.length}</strong> of {perfumes.length} perfumes
             </span>
+            {selectedPriceRange !== 'all' && (
+              <span className="px-2 py-0.5 bg-amber-400/15 text-amber-300 border border-amber-400/30 rounded text-[10px] font-medium tracking-wider whitespace-nowrap inline-flex items-center gap-1">
+                <span>
+                  {selectedPriceRange === 'under-1000' && 'Under ₹1,000'}
+                  {selectedPriceRange === '1000-2000' && '₹1k – ₹2k'}
+                  {selectedPriceRange === '2000-3500' && '₹2k – ₹3.5k'}
+                  {selectedPriceRange === '3500-5000' && '₹3.5k – ₹5k'}
+                  {selectedPriceRange === 'above-5000' && 'Above ₹5k'}
+                  {selectedPriceRange === 'custom' && (
+                    customMinPrice && customMaxPrice
+                      ? `₹${Number(customMinPrice).toLocaleString('en-IN')} – ₹${Number(customMaxPrice).toLocaleString('en-IN')}`
+                      : customMinPrice
+                      ? `Min ₹${Number(customMinPrice).toLocaleString('en-IN')}`
+                      : customMaxPrice
+                      ? `Max ₹${Number(customMaxPrice).toLocaleString('en-IN')}`
+                      : 'Custom Price'
+                  )}
+                </span>
+                <button
+                  onClick={() => {
+                    setSelectedPriceRange('all');
+                    setCustomMinPrice('');
+                    setCustomMaxPrice('');
+                  }}
+                  className="hover:text-white ml-0.5 transition"
+                  aria-label="Remove price filter"
+                >
+                  <XIcon size={10} animateOnHover={false} />
+                </button>
+              </span>
+            )}
             {selectedSeason !== 'all' && (
               <span className="px-2 py-0.5 bg-neutral-800 text-neutral-200 rounded text-[10px] font-medium uppercase tracking-wider whitespace-nowrap">
                 {selectedSeason}

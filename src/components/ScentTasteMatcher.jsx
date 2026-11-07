@@ -91,6 +91,7 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
   const [selectedFamily, setSelectedFamily] = useState(null); // single scent family or null
   const [selectedNotes, setSelectedNotes] = useState([]); // array of individual note names
   const [searchQuery, setSearchQuery] = useState(''); // text search for notes/names
+  const [selectedPriceRange, setSelectedPriceRange] = useState('all'); // price range filter
   const [sortBy, setSortBy] = useState('match'); // 'match' | 'name' | 'price_asc' | 'price_desc'
 
   const vibeScrollRef = useRef(null);
@@ -218,10 +219,11 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
     setSelectedFamily(null);
     setSelectedNotes([]);
     setSearchQuery('');
+    setSelectedPriceRange('all');
   };
 
   const hasActiveFilters = Boolean(
-    selectedFamily || selectedNotes.length > 0 || searchQuery.trim()
+    selectedFamily || selectedNotes.length > 0 || searchQuery.trim() || selectedPriceRange !== 'all'
   );
 
   // Active family object
@@ -283,6 +285,16 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
           }
         }
 
+        // Price Range filter
+        if (selectedPriceRange !== 'all') {
+          const price = parseInt(p.price) || 0;
+          if (selectedPriceRange === 'under-1000' && price >= 1000) isMatch = false;
+          else if (selectedPriceRange === '1000-2000' && (price < 1000 || price > 2000)) isMatch = false;
+          else if (selectedPriceRange === '2000-3500' && (price <= 2000 || price > 3500)) isMatch = false;
+          else if (selectedPriceRange === '3500-5000' && (price <= 3500 || price > 5000)) isMatch = false;
+          else if (selectedPriceRange === 'above-5000' && price <= 5000) isMatch = false;
+        }
+
         if (!isMatch) return null;
 
         return {
@@ -307,7 +319,7 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
         }
         return 0;
       });
-  }, [perfumes, selectedFamily, selectedNotes, searchQuery, sortBy, hasActiveFilters, activeFamilyObj]);
+  }, [perfumes, selectedFamily, selectedNotes, searchQuery, selectedPriceRange, sortBy, hasActiveFilters, activeFamilyObj]);
 
   return (
     <div className="space-y-4 pb-12 animate-fadeIn max-w-7xl mx-auto">
@@ -349,75 +361,62 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
 
         {/* 1. Horizontal Scrollable Scent Vibe Pills (Mobile-First 1-Tap with Swipe Animation) */}
         <div>
-          <div className="flex items-center justify-between mb-1.5">
+          <div className="flex items-center justify-between mb-2">
             <div className="text-[10px] font-semibold tracking-wider uppercase text-neutral-400">
               1. Scent Vibe (Tap to Filter)
             </div>
-            {/* Animated Swipe Cue: Only on small screens (sm:hidden), only when scrollable, and hides after 1st swipe */}
-            {!hasSwipedVibes && canScrollRight && (
-              <div className="flex sm:hidden items-center gap-1.5 text-[10px] text-amber-400 font-medium select-none animate-fadeIn">
-                <span className="animate-pulse">Swipe</span>
-                <span className="inline-block animate-swipe-hint font-bold text-xs">➔</span>
+            <div className="flex items-center gap-2">
+              {/* Animated Swipe Cue: Only on small screens (sm:hidden), only when scrollable, and hides after 1st swipe */}
+              {!hasSwipedVibes && canScrollRight && (
+                <div className="flex sm:hidden items-center gap-1.5 text-[10px] text-amber-400 font-medium select-none animate-fadeIn">
+                  <span className="animate-pulse">Swipe</span>
+                  <span className="inline-block animate-swipe-hint font-bold text-xs">➔</span>
+                </div>
+              )}
+              {/* Desktop Scroll Chevrons: Cleanly placed in header, never obscuring or overlapping chips */}
+              <div className="hidden sm:flex items-center gap-1">
+                <button
+                  onClick={() => scrollVibes('left')}
+                  disabled={!canScrollLeft}
+                  className="w-6 h-6 rounded-lg bg-[#181818] hover:bg-[#252525] disabled:opacity-20 disabled:pointer-events-none text-neutral-300 hover:text-white flex items-center justify-center transition border border-white/10 active:scale-95"
+                  aria-label="Scroll left"
+                >
+                  <ChevronLeftIcon size={12} animateOnHover={true} />
+                </button>
+                <button
+                  onClick={() => scrollVibes('right')}
+                  disabled={!canScrollRight}
+                  className="w-6 h-6 rounded-lg bg-[#181818] hover:bg-[#252525] disabled:opacity-20 disabled:pointer-events-none text-neutral-300 hover:text-white flex items-center justify-center transition border border-white/10 active:scale-95"
+                  aria-label="Scroll right"
+                >
+                  <ChevronRightIcon size={12} animateOnHover={true} />
+                </button>
               </div>
-            )}
+            </div>
           </div>
 
-          <div className="relative group/vibes">
-            {/* Left Edge Darkness Fade (Subtle boundary vignette) */}
-            {canScrollLeft && (
-              <div className="absolute left-0 top-0 bottom-0 w-6 sm:w-10 bg-gradient-to-r from-[#131313] to-transparent z-10 pointer-events-none rounded-l-xl" />
-            )}
-
-            {/* Left Chevron Button: Desktop only (hidden sm:flex) so it never blocks mobile text */}
-            {canScrollLeft && (
-              <button
-                onClick={() => scrollVibes('left')}
-                className="hidden sm:flex absolute -left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-[#1a1a1a] hover:bg-white text-neutral-300 hover:text-black border border-white/20 items-center justify-center shadow-xl backdrop-blur-md transition active:scale-90"
-                aria-label="Scroll left"
-              >
-                <ChevronLeftIcon size={14} animateOnHover={true} />
-              </button>
-            )}
-
-            {/* Horizontal Scroll Container */}
-            <div
-              ref={vibeScrollRef}
-              className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar px-1 scroll-smooth"
-            >
-              {SCENT_FAMILIES.map((family) => {
-                const isSelected = selectedFamily === family.id;
-                return (
-                  <button
-                    key={family.id}
-                    onClick={() => handleToggleFamily(family.id)}
-                    className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition active:scale-95 border flex-shrink-0 ${
-                      isSelected
-                        ? 'bg-amber-400 text-black border-amber-400 shadow-md shadow-amber-400/20 font-bold'
-                        : 'bg-[#161616] hover:bg-[#202020] text-neutral-300 border-white/[0.08]'
-                    }`}
-                  >
-                    <span className="text-sm">{family.emoji}</span>
-                    <span>{family.label}</span>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Right Edge Darkness Fade (Subtle boundary vignette) */}
-            {canScrollRight && (
-              <div className="absolute right-0 top-0 bottom-0 w-6 sm:w-10 bg-gradient-to-l from-[#131313] to-transparent z-10 pointer-events-none rounded-r-xl" />
-            )}
-
-            {/* Right Chevron Button: Desktop only (hidden sm:flex) so it never blocks mobile text */}
-            {canScrollRight && (
-              <button
-                onClick={() => scrollVibes('right')}
-                className="hidden sm:flex absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-[#1a1a1a] hover:bg-white text-neutral-300 hover:text-black border border-white/20 items-center justify-center shadow-xl backdrop-blur-md transition active:scale-90"
-                aria-label="Scroll right"
-              >
-                <ChevronRightIcon size={14} animateOnHover={true} />
-              </button>
-            )}
+          {/* Clean Horizontal Scroll Container - No dark overlays or floating arrows covering chips */}
+          <div
+            ref={vibeScrollRef}
+            className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar px-0.5 scroll-smooth"
+          >
+            {SCENT_FAMILIES.map((family) => {
+              const isSelected = selectedFamily === family.id;
+              return (
+                <button
+                  key={family.id}
+                  onClick={() => handleToggleFamily(family.id)}
+                  className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition active:scale-95 border flex-shrink-0 ${
+                    isSelected
+                      ? 'bg-amber-400 text-black border-amber-400 shadow-md shadow-amber-400/20 font-bold'
+                      : 'bg-[#161616] hover:bg-[#202020] text-neutral-300 border-white/[0.08]'
+                  }`}
+                >
+                  <span className="text-sm">{family.emoji}</span>
+                  <span>{family.label}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -517,6 +516,25 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
                 </button>
               </span>
             )}
+
+            {selectedPriceRange !== 'all' && (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-400/15 border border-amber-400/30 text-amber-300 text-[11px] font-semibold">
+                <span>
+                  {selectedPriceRange === 'under-1000' && 'Under ₹1,000'}
+                  {selectedPriceRange === '1000-2000' && '₹1k – ₹2k'}
+                  {selectedPriceRange === '2000-3500' && '₹2k – ₹3.5k'}
+                  {selectedPriceRange === '3500-5000' && '₹3.5k – ₹5k'}
+                  {selectedPriceRange === 'above-5000' && 'Above ₹5k'}
+                </span>
+                <button
+                  onClick={() => setSelectedPriceRange('all')}
+                  className="hover:text-white"
+                  aria-label="Remove price filter"
+                >
+                  <XIcon size={10} animateOnHover={false} />
+                </button>
+              </span>
+            )}
           </div>
         )}
       </div>
@@ -569,24 +587,44 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
       ) : (
         /* Results View when filters are active */
         <div className="space-y-3">
-          {/* Header row: Match Count & Sort Selector */}
+          {/* Header row: Match Count & Selectors */}
           <div className="flex flex-wrap items-center justify-between gap-2 px-1 pt-1">
             <div className="text-xs text-neutral-400">
               Found <strong className="text-white font-semibold">{results.length}</strong> matching fragrances
             </div>
 
-            <div className="flex items-center gap-1.5 shrink-0">
-              <span className="text-[11px] text-neutral-400">Sort:</span>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="bg-[#141414] border border-white/[0.08] text-neutral-200 text-xs rounded-lg px-2 py-1 focus:outline-none focus:border-white/30 cursor-pointer"
-              >
-                <option value="match">Best Match</option>
-                <option value="name">Name (A to Z)</option>
-                <option value="price_asc">Price: Low to High</option>
-                <option value="price_desc">Price: High to Low</option>
-              </select>
+            <div className="flex flex-wrap items-center gap-2 shrink-0">
+              {/* Price Filter */}
+              <div className="flex items-center gap-1.5">
+                <span className="text-[11px] text-neutral-400">Price:</span>
+                <select
+                  value={selectedPriceRange}
+                  onChange={(e) => setSelectedPriceRange(e.target.value)}
+                  className="bg-[#141414] border border-white/[0.08] text-neutral-200 text-xs rounded-lg px-2 py-1 focus:outline-none focus:border-white/30 cursor-pointer"
+                >
+                  <option value="all">All Prices</option>
+                  <option value="under-1000">Under ₹1,000</option>
+                  <option value="1000-2000">₹1,000 – ₹2,000</option>
+                  <option value="2000-3500">₹2,000 – ₹3,500</option>
+                  <option value="3500-5000">₹3,500 – ₹5,000</option>
+                  <option value="above-5000">Above ₹5,000</option>
+                </select>
+              </div>
+
+              {/* Sort Selector */}
+              <div className="flex items-center gap-1.5">
+                <span className="text-[11px] text-neutral-400">Sort:</span>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="bg-[#141414] border border-white/[0.08] text-neutral-200 text-xs rounded-lg px-2 py-1 focus:outline-none focus:border-white/30 cursor-pointer"
+                >
+                  <option value="match">Best Match</option>
+                  <option value="name">Name (A to Z)</option>
+                  <option value="price_asc">Price: Low to High</option>
+                  <option value="price_desc">Price: High to Low</option>
+                </select>
+              </div>
             </div>
           </div>
 
