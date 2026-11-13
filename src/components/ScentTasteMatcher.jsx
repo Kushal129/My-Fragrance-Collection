@@ -5,7 +5,6 @@ import {
   CheckIcon,
   RotateCcwIcon,
   ArrowRightIcon,
-  SparklesIcon,
   FlaskIcon,
   ChevronLeftIcon,
   ChevronRightIcon
@@ -324,7 +323,7 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
   return (
     <div className="space-y-4 pb-12 animate-fadeIn max-w-7xl mx-auto">
       {/* Sleek Luxury Control Header Card */}
-      <div className="bg-gradient-to-b from-[#131313] to-[#0a0a0a] border border-white/[0.09] rounded-2xl p-3.5 sm:p-5 shadow-2xl space-y-3.5">
+      <div className="bg-black border border-white/10 rounded-2xl p-3.5 sm:p-5 shadow-2xl space-y-3.5">
         <div className="flex items-start justify-between gap-2.5">
           <div className="space-y-1 min-w-0">
             <div className="flex flex-wrap items-center gap-2">
@@ -337,7 +336,7 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
                   {results.length} Matches Found
                 </span>
               ) : (
-                <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-neutral-800 text-neutral-400 border border-white/5 whitespace-nowrap">
+                <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-white/10 text-neutral-300 border border-white/10 whitespace-nowrap">
                   Tap note or vibe
                 </span>
               )}
@@ -350,7 +349,7 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
           {hasActiveFilters && (
             <button
               onClick={handleReset}
-              className="flex items-center gap-1.5 text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white border border-white/10 transition active:scale-95 shrink-0 whitespace-nowrap"
+              className="flex items-center gap-1.5 text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-neutral-300 hover:text-white border border-white/10 transition active:scale-95 shrink-0 whitespace-nowrap"
               title="Reset all filters"
             >
               <RotateCcwIcon size={12} animateOnHover={true} />
@@ -378,7 +377,7 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
                 <button
                   onClick={() => scrollVibes('left')}
                   disabled={!canScrollLeft}
-                  className="w-6 h-6 rounded-lg bg-[#181818] hover:bg-[#252525] disabled:opacity-20 disabled:pointer-events-none text-neutral-300 hover:text-white flex items-center justify-center transition border border-white/10 active:scale-95"
+                  className="w-6 h-6 rounded-lg bg-black hover:bg-white/10 disabled:opacity-20 disabled:pointer-events-none text-neutral-300 hover:text-white flex items-center justify-center transition border border-white/10 active:scale-95"
                   aria-label="Scroll left"
                 >
                   <ChevronLeftIcon size={12} animateOnHover={true} />
@@ -386,7 +385,7 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
                 <button
                   onClick={() => scrollVibes('right')}
                   disabled={!canScrollRight}
-                  className="w-6 h-6 rounded-lg bg-[#181818] hover:bg-[#252525] disabled:opacity-20 disabled:pointer-events-none text-neutral-300 hover:text-white flex items-center justify-center transition border border-white/10 active:scale-95"
+                  className="w-6 h-6 rounded-lg bg-black hover:bg-white/10 disabled:opacity-20 disabled:pointer-events-none text-neutral-300 hover:text-white flex items-center justify-center transition border border-white/10 active:scale-95"
                   aria-label="Scroll right"
                 >
                   <ChevronRightIcon size={12} animateOnHover={true} />
@@ -409,7 +408,7 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
                   className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition active:scale-95 border flex-shrink-0 ${
                     isSelected
                       ? 'bg-amber-400 text-black border-amber-400 shadow-md shadow-amber-400/20 font-bold'
-                      : 'bg-[#161616] hover:bg-[#202020] text-neutral-300 border-white/[0.08]'
+                      : 'bg-black hover:bg-white/10 text-neutral-300 border-white/10'
                   }`}
                 >
                   <span className="text-sm">{family.emoji}</span>
@@ -436,7 +435,7 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
               placeholder="Search note (e.g. Vanilla, Coffee, Cardamom, Oud, Mint)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-8 py-2 bg-[#161616] border border-white/[0.09] rounded-xl text-xs text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-amber-400/60 transition"
+              className="w-full pl-9 pr-8 py-2 bg-black border border-white/10 rounded-xl text-xs text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-amber-400/60 transition"
             />
             {searchQuery && (
               <button
@@ -460,7 +459,7 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
                   className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium border transition active:scale-95 whitespace-nowrap ${
                     isSelected
                       ? 'bg-amber-400 text-black border-amber-300 font-bold shadow-sm'
-                      : 'bg-[#161616] hover:bg-[#202020] text-neutral-300 border-white/[0.06] hover:border-white/20'
+                      : 'bg-black hover:bg-white/10 text-neutral-300 border-white/10 hover:border-white/20'
                   }`}
                 >
                   {isSelected && <CheckIcon size={11} animateOnHover={false} />}
@@ -542,7 +541,7 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
       {/* Conditional Content Area: Prompt when nothing selected, Grid when selected */}
       {!hasActiveFilters ? (
         /* Empty State: Awaiting User Selection (No lag, no scaling issues) */
-        <div className="text-center py-12 sm:py-16 px-4 bg-gradient-to-b from-[#0f0f0f] to-[#090909] border border-white/[0.06] rounded-2xl space-y-4">
+        <div className="text-center py-12 sm:py-16 px-4 bg-black border border-white/10 rounded-2xl space-y-4">
           <div className="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center text-amber-400">
             <FlaskIcon size={24} animateOnHover={true} />
           </div>
@@ -560,25 +559,25 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
           <div className="pt-2 flex flex-wrap items-center justify-center gap-2">
             <button
               onClick={() => handleToggleNote('Vanilla')}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#161616] hover:bg-[#202020] border border-white/[0.08] hover:border-amber-400/40 text-neutral-200 text-xs font-semibold transition active:scale-95"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black hover:bg-white/10 border border-white/10 hover:border-amber-400/40 text-neutral-200 text-xs font-semibold transition active:scale-95"
             >
               <span>🍦 Try Vanilla</span>
             </button>
             <button
               onClick={() => handleToggleFamily('warm_spicy')}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#161616] hover:bg-[#202020] border border-white/[0.08] hover:border-amber-400/40 text-neutral-200 text-xs font-semibold transition active:scale-95"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black hover:bg-white/10 border border-white/10 hover:border-amber-400/40 text-neutral-200 text-xs font-semibold transition active:scale-95"
             >
               <span>🌶️ Warm & Spicy</span>
             </button>
             <button
               onClick={() => handleToggleFamily('fresh_citrus')}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#161616] hover:bg-[#202020] border border-white/[0.08] hover:border-amber-400/40 text-neutral-200 text-xs font-semibold transition active:scale-95"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black hover:bg-white/10 border border-white/10 hover:border-amber-400/40 text-neutral-200 text-xs font-semibold transition active:scale-95"
             >
               <span>🍋 Fresh & Citrus</span>
             </button>
             <button
               onClick={() => handleToggleNote('Oud')}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#161616] hover:bg-[#202020] border border-white/[0.08] hover:border-amber-400/40 text-neutral-200 text-xs font-semibold transition active:scale-95"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black hover:bg-white/10 border border-white/10 hover:border-amber-400/40 text-neutral-200 text-xs font-semibold transition active:scale-95"
             >
               <span>🪵 Try Oud</span>
             </button>
@@ -600,7 +599,7 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
                 <select
                   value={selectedPriceRange}
                   onChange={(e) => setSelectedPriceRange(e.target.value)}
-                  className="bg-[#141414] border border-white/[0.08] text-neutral-200 text-xs rounded-lg px-2 py-1 focus:outline-none focus:border-white/30 cursor-pointer"
+                  className="bg-black border border-white/10 text-neutral-200 text-xs rounded-lg px-2 py-1 focus:outline-none focus:border-white/30 cursor-pointer"
                 >
                   <option value="all">All Prices</option>
                   <option value="under-1000">Under ₹1,000</option>
@@ -617,7 +616,7 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="bg-[#141414] border border-white/[0.08] text-neutral-200 text-xs rounded-lg px-2 py-1 focus:outline-none focus:border-white/30 cursor-pointer"
+                  className="bg-black border border-white/10 text-neutral-200 text-xs rounded-lg px-2 py-1 focus:outline-none focus:border-white/30 cursor-pointer"
                 >
                   <option value="match">Best Match</option>
                   <option value="name">Name (A to Z)</option>
@@ -630,9 +629,9 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
 
           {/* Results Grid or Empty Match Notice */}
           {results.length === 0 ? (
-            <div className="text-center py-12 px-4 bg-[#101010] border border-dashed border-white/10 rounded-2xl space-y-3">
-              <div className="w-10 h-10 mx-auto rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400">
-                <SparklesIcon size={16} animateOnHover={true} />
+            <div className="text-center py-12 px-4 bg-black border border-dashed border-white/15 rounded-2xl space-y-3">
+              <div className="w-10 h-10 mx-auto rounded-full bg-white/10 flex items-center justify-center text-neutral-400">
+                <SearchIcon size={16} animateOnHover={false} />
               </div>
               <h4 className="text-sm font-semibold text-white">No fragrances found for this exact note</h4>
               <p className="text-xs text-neutral-400 max-w-sm mx-auto">
@@ -652,10 +651,10 @@ const ScentTasteMatcher = ({ perfumes = [], onSelectPerfume }) => {
                 <div
                   key={perfume.id}
                   onClick={() => onSelectPerfume(perfume)}
-                  className="group bg-[#111111] hover:bg-[#161616] border border-white/[0.07] hover:border-white/20 rounded-2xl p-2.5 sm:p-3 flex flex-col justify-between transition-all duration-200 cursor-pointer active:scale-[0.98] shadow-sm hover:shadow-xl"
+                  className="group bg-black hover:bg-[#0a0a0a] border border-white/10 hover:border-white/20 rounded-2xl p-2.5 sm:p-3 flex flex-col justify-between transition-all duration-200 cursor-pointer active:scale-[0.98] shadow-sm hover:shadow-xl"
                 >
                   {/* Bottle Image */}
-                  <div className="relative aspect-square w-full rounded-xl bg-[#0c0c0c] border border-white/[0.04] overflow-hidden flex items-center justify-center p-2 mb-2">
+                  <div className="relative aspect-square w-full rounded-xl bg-black border border-white/10 overflow-hidden flex items-center justify-center p-2 mb-2">
                     <img
                       src={perfume.image}
                       alt={perfume.name}

@@ -10128,15 +10128,17 @@ export const perfumes = [
         "url": "https://www.fragrantica.com/perfume/Rayhaan/Vantage-143352.html"
       }
     ],
-    "description": "A sophisticated, spicy-resinous masterpiece. Invigorates with pink pepper, aromatic cardamom, and bergamot, evolving into an opulent heart of sacred frankincense, rich myrrh, and juniper, anchored by deep cedarwood and patchouli.",
+    "description": "A sophisticated, spicy-resinous masterpiece. Invigorates with pink pepper, aromatic cardamom, and bergamot, evolving into an opulent heart of sacred frankincense, rich myrrh, and juniper, anchored by deep cedarwood and patchouli. Sophisticated and commanding for corporate office wear, business meetings, and formal evenings.",
     "seasonsList": [
       "Winter",
       "Fall",
-      "Evening"
+      "Evening",
+      "All Weather"
     ],
     "occasions": [
-      "Evening / Night",
+      "Office / Work",
       "Formal Wear",
+      "Evening / Night",
       "Special Occasion",
       "Date Night"
     ]
@@ -10480,6 +10482,448 @@ export const perfumes = [
       "Evening / Night",
       "Special Occasion",
       "Formal / Black Tie",
+      "Date Night"
+    ]
+  },
+  {
+    "id": "101",
+    "name": "Menworks Ingenious",
+    "brand": "Menworks",
+    "concentration": "EDP",
+    "category": "Indian Artisanal / Niche",
+    "volume": "50ml",
+    "price": "799",
+    "originalPrice": "799",
+    "rating": 4.5,
+    "votes": 320,
+    "gender": "Men",
+    "inspiredBy": "Goldfield & Banks Ingenious Ginger",
+    "accords": [
+      {
+        "name": "fresh spicy",
+        "percent": 95,
+        "color": "#26C6DA"
+      },
+      {
+        "name": "citrus",
+        "percent": 90,
+        "color": "#FDD835"
+      },
+      {
+        "name": "warm spicy",
+        "percent": 84,
+        "color": "#E64A19"
+      },
+      {
+        "name": "whitefloral",
+        "percent": 75,
+        "color": "#EEEEEE"
+      },
+      {
+        "name": "vanilla",
+        "percent": 70,
+        "color": "#FFE082"
+      },
+      {
+        "name": "amber",
+        "percent": 68,
+        "color": "#FFA000"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Ginger",
+        "Bergamot",
+        "Mandarin"
+      ],
+      "middleNotes": [
+        "White Florals",
+        "Magnolia",
+        "Neroli"
+      ],
+      "baseNotes": [
+        "Vanilla",
+        "Amberwood",
+        "Musk"
+      ],
+      "top": [
+        "Ginger",
+        "Bergamot",
+        "Mandarin"
+      ],
+      "middle": [
+        "White Florals",
+        "Magnolia",
+        "Neroli"
+      ],
+      "base": [
+        "Vanilla",
+        "Amberwood",
+        "Musk"
+      ]
+    },
+    "seasons": {
+      "spring": 35,
+      "summer": 45,
+      "fall": 15,
+      "winter": 5,
+      "day": 80,
+      "night": 20
+    },
+    "performance": {
+      "longevity": "Long Lasting (7-8 hrs)",
+      "sillage": "Moderate to Strong"
+    },
+    "image": "https://menworks.in/cdn/shop/files/ingenious2_4d396a73-f995-4fe8-8062-e9b9c44cf7fa.png",
+    "buyLinks": [
+      {
+        "name": "Menworks Official",
+        "url": "https://menworks.in/products/menworks-ingenious-perfume"
+      }
+    ],
+    "description": "An invigorating zesty and creamy fragrance opening with fizzy ginger, sparkling Italian bergamot, and mandarin. The floral heart of blooming magnolia and neroli gracefully settles into a velvety base of warm amberwood, smooth vanilla, and clean musk. A perfect refreshing companion for daily wear and office elegance.",
+    "seasonsList": [
+      "Summer",
+      "Spring",
+      "All Weather"
+    ],
+    "occasions": [
+      "Office / Work",
+      "Casual / Daily",
+      "Day Wear"
+    ]
+  },
+  {
+    "id": "102",
+    "name": "Denver Black Code",
+    "brand": "Denver",
+    "concentration": "EDP",
+    "category": "Budget Beast",
+    "volume": "70ml",
+    "price": "499",
+    "originalPrice": "499",
+    "rating": 4.35,
+    "votes": 1250,
+    "gender": "Men",
+    "accords": [
+      {
+        "name": "woody",
+        "percent": 92,
+        "color": "#8D6E63"
+      },
+      {
+        "name": "patchouli",
+        "percent": 86,
+        "color": "#558B2F"
+      },
+      {
+        "name": "aromatic",
+        "percent": 80,
+        "color": "#43A047"
+      },
+      {
+        "name": "green",
+        "percent": 75,
+        "color": "#66BB6A"
+      },
+      {
+        "name": "fresh",
+        "percent": 70,
+        "color": "#26C6DA"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Patchouli",
+        "Green Notes"
+      ],
+      "middleNotes": [
+        "Cedarwood",
+        "Aromatic Spices"
+      ],
+      "baseNotes": [
+        "Amber",
+        "Musk",
+        "Woody Accords"
+      ],
+      "top": [
+        "Patchouli",
+        "Green Notes"
+      ],
+      "middle": [
+        "Cedarwood",
+        "Aromatic Spices"
+      ],
+      "base": [
+        "Amber",
+        "Musk",
+        "Woody Accords"
+      ]
+    },
+    "seasons": {
+      "spring": 25,
+      "summer": 30,
+      "fall": 25,
+      "winter": 20,
+      "day": 70,
+      "night": 30
+    },
+    "performance": {
+      "longevity": "Moderate (6-7 hrs)",
+      "sillage": "Moderate"
+    },
+    "image": "https://denverformen.com/cdn/shop/files/black_code_70ml_53a959ea-18ef-47d9-991e-83c2910febb6.jpg",
+    "buyLinks": [
+      {
+        "name": "Denver Official",
+        "url": "https://denverformen.com/products/black-code-perfume-70ml"
+      }
+    ],
+    "description": "A dynamic and masculine signature fragrance crafted for the modern professional. Denver Black Code features an earthy patchouli and vibrant green opening, evolving into a confident cedarwood core and a warm, magnetic base of amber and woody musk. Crisp, dependable, and tailor-made for daily office wear.",
+    "seasonsList": [
+      "All Weather",
+      "Summer",
+      "Monsoon"
+    ],
+    "occasions": [
+      "Office / Work",
+      "Casual / Daily",
+      "Day Wear"
+    ]
+  },
+  {
+    "id": "103",
+    "name": "Nusuk Ateeq",
+    "brand": "Nusuk",
+    "concentration": "Extrait",
+    "category": "Arabian / Middle Eastern",
+    "volume": "100ml",
+    "price": "3399",
+    "originalPrice": "3999",
+    "rating": 4.62,
+    "votes": 850,
+    "gender": "Unisex",
+    "inspiredBy": "Xerjoff Naxos / Tobacco & Honey",
+    "accords": [
+      {
+        "name": "sweet",
+        "percent": 94,
+        "color": "#E91E63"
+      },
+      {
+        "name": "tobacco",
+        "percent": 90,
+        "color": "#6D4C41"
+      },
+      {
+        "name": "honey",
+        "percent": 88,
+        "color": "#FFA000"
+      },
+      {
+        "name": "warm spicy",
+        "percent": 84,
+        "color": "#E64A19"
+      },
+      {
+        "name": "vanilla",
+        "percent": 78,
+        "color": "#FFE082"
+      },
+      {
+        "name": "aromatic",
+        "percent": 72,
+        "color": "#43A047"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Honey",
+        "Cinnamon",
+        "Amber",
+        "Grapefruit",
+        "Lime"
+      ],
+      "middleNotes": [
+        "Tobacco",
+        "Lavender",
+        "Jasmine"
+      ],
+      "baseNotes": [
+        "Tonka Bean",
+        "Vanilla Orchid",
+        "Cedarwood",
+        "Coumarin",
+        "Musk"
+      ],
+      "top": [
+        "Honey",
+        "Cinnamon",
+        "Amber",
+        "Grapefruit",
+        "Lime"
+      ],
+      "middle": [
+        "Tobacco",
+        "Lavender",
+        "Jasmine"
+      ],
+      "base": [
+        "Tonka Bean",
+        "Vanilla Orchid",
+        "Cedarwood",
+        "Coumarin",
+        "Musk"
+      ]
+    },
+    "seasons": {
+      "spring": 25,
+      "summer": 10,
+      "fall": 45,
+      "winter": 50,
+      "day": 40,
+      "night": 60
+    },
+    "performance": {
+      "longevity": "Long Lasting (9-11 hrs)",
+      "sillage": "Strong"
+    },
+    "image": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.115754.2x.jpg",
+    "buyLinks": [
+      {
+        "name": "Belvish",
+        "url": "https://belvish.com/products/nusuk-ateeq-extrait-de-parfum"
+      },
+      {
+        "name": "Aar Fragrances",
+        "url": "https://aarfragrances.com/products/nusuk-ateeq-edp"
+      }
+    ],
+    "description": "An opulent sweet-spicy Extrait de Parfum reminiscent of Xerjoff Naxos. Opens with luscious golden honey, spicy cinnamon, and crisp citrus zest, before unfurling into an aristocratic heart of aromatic tobacco leaf, soothing lavender, and jasmine. Rich and commanding for corporate office wear, business meetings, and elegant evenings.",
+    "seasonsList": [
+      "Winter",
+      "Fall",
+      "All Weather"
+    ],
+    "occasions": [
+      "Office / Work",
+      "Formal Wear",
+      "Evening / Night",
+      "Date Night",
+      "Special Occasion"
+    ]
+  },
+  {
+    "id": "104",
+    "name": "Jean Paul Gaultier Le Beau Paradise Garden",
+    "brand": "Jean Paul Gaultier",
+    "concentration": "EDP",
+    "category": "Designer",
+    "volume": "125ml",
+    "price": "9200",
+    "originalPrice": "10800",
+    "rating": 4.48,
+    "votes": 2150,
+    "gender": "Men",
+    "accords": [
+      {
+        "name": "aquatic",
+        "percent": 94,
+        "color": "#00ACC1"
+      },
+      {
+        "name": "green",
+        "percent": 88,
+        "color": "#66BB6A"
+      },
+      {
+        "name": "sweet",
+        "percent": 85,
+        "color": "#E91E63"
+      },
+      {
+        "name": "woody",
+        "percent": 80,
+        "color": "#8D6E63"
+      },
+      {
+        "name": "vanilla",
+        "percent": 76,
+        "color": "#FFE082"
+      },
+      {
+        "name": "fresh",
+        "percent": 74,
+        "color": "#26C6DA"
+      }
+    ],
+    "notes": {
+      "topNotes": [
+        "Watery Notes",
+        "Mint",
+        "Green Notes",
+        "Ginger"
+      ],
+      "middleNotes": [
+        "Coconut",
+        "Fig",
+        "Salt"
+      ],
+      "baseNotes": [
+        "Sandalwood",
+        "Tonka Bean"
+      ],
+      "top": [
+        "Watery Notes",
+        "Mint",
+        "Green Notes",
+        "Ginger"
+      ],
+      "middle": [
+        "Coconut",
+        "Fig",
+        "Salt"
+      ],
+      "base": [
+        "Sandalwood",
+        "Tonka Bean"
+      ]
+    },
+    "seasons": {
+      "spring": 35,
+      "summer": 50,
+      "fall": 10,
+      "winter": 5,
+      "day": 75,
+      "night": 25
+    },
+    "performance": {
+      "longevity": "Long Lasting (8-10 hrs)",
+      "sillage": "Strong"
+    },
+    "image": "https://images-static.nykaa.com/media/catalog/product/8/6/865e51fJEANP00000130_1.jpg?tr=w-500",
+    "buyLinks": [
+      {
+        "name": "Nykaa Man",
+        "url": "https://www.nykaa.com/jean-paul-gaultier-le-beau-paradise-garden-eau-de-parfum/p/13245230"
+      },
+      {
+        "name": "Belvish",
+        "url": "https://belvish.com/products/jean-paul-gaultier-le-beau-paradise-garden"
+      }
+    ],
+    "description": "A sun-drenched, exotic paradise encapsulated in Gaultier's iconic emerald torso bottle. Crafted by Quentin Bisch, this addictive woody-aquatic EDP opens with zesty ginger, frosted mint, and crisp green notes, transitioning into a magnetic heart of creamy coconut water, lush fig, and ocean salt. Grounded by warm tonka bean and sandalwood for an irresistible tropical statement.",
+    "seasonsList": [
+      "Summer",
+      "Spring",
+      "All Weather"
+    ],
+    "occasions": [
+      "Casual / Daily",
+      "Summer Vacation",
+      "Beach / Vacation",
+      "Day Wear",
+      "Party / Clubbing",
       "Date Night"
     ]
   }

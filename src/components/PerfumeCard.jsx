@@ -21,8 +21,8 @@ const PerfumeCard = ({
 
   // Minimalist Luxury Fallback when image fails
   const renderFallback = () => (
-    <div className="w-full h-full flex flex-col items-center justify-center p-3 text-center bg-[#111111] select-none">
-      <div className="w-10 h-12 border border-white/20 rounded-t-sm rounded-b-md flex flex-col items-center justify-center p-1 relative mb-2 bg-[#0d0d0d]">
+    <div className="w-full h-full flex flex-col items-center justify-center p-3 text-center bg-black select-none">
+      <div className="w-10 h-12 border border-white/20 rounded-t-sm rounded-b-md flex flex-col items-center justify-center p-1 relative mb-2 bg-black">
         <div className="w-3 h-1.5 bg-neutral-600 rounded-t -mt-2.5 mb-1" />
         <DropletIcon size={14} animateOnHover={false} className="text-neutral-400" />
       </div>
@@ -39,16 +39,16 @@ const PerfumeCard = ({
     return (
       <div
         onClick={() => onSelect(perfume)}
-        className="vault-card-interactive rounded-2xl p-3 flex items-center gap-3.5 cursor-pointer group hover:bg-[#121212] transition-colors"
+        className="vault-card-interactive rounded-2xl p-3 flex items-center gap-3.5 cursor-pointer group hover:bg-[#0a0a0a] transition-colors"
       >
         {/* Thumbnail */}
-        <div className="relative w-20 h-24 rounded-xl bg-[#0c0c0c] border border-white/[0.08] overflow-hidden flex-shrink-0 flex items-center justify-center p-2">
+        <div className="relative w-20 h-24 rounded-xl bg-black border border-white/[0.08] overflow-hidden flex-shrink-0 flex items-center justify-center p-2">
           {imgError ? (
             renderFallback()
           ) : (
             <>
               {!isLoaded && (
-                <div className="absolute inset-0 bg-[#121212] flex items-center justify-center">
+                <div className="absolute inset-0 bg-black flex items-center justify-center">
                   <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                 </div>
               )}
@@ -102,7 +102,7 @@ const PerfumeCard = ({
             {(perfume.seasonsList || []).slice(0, 1).map((s, idx) => (
               <span
                 key={idx}
-                className="text-[10px] font-medium tracking-wide px-2 py-0.5 bg-[#181818] text-neutral-200 rounded-md border border-white/10"
+                className="text-[10px] font-medium tracking-wide px-2 py-0.5 bg-white/[0.06] text-neutral-200 rounded-md border border-white/10"
               >
                 {s}
               </span>
@@ -110,7 +110,7 @@ const PerfumeCard = ({
             {(perfume.occasions || []).slice(0, 1).map((o, idx) => (
               <span
                 key={idx}
-                className="text-[10px] font-medium tracking-wide px-2 py-0.5 bg-[#141414] text-neutral-400 rounded-md border border-white/5 truncate"
+                className="text-[10px] font-medium tracking-wide px-2 py-0.5 bg-white/[0.03] text-neutral-400 rounded-md border border-white/5 truncate"
               >
                 {o}
               </span>
@@ -138,13 +138,13 @@ const PerfumeCard = ({
       className="vault-card-interactive rounded-2xl overflow-hidden flex flex-col cursor-pointer group hover:border-white/20 transition-all duration-300"
     >
       {/* Bottle Image Showcase Container */}
-      <div className="relative aspect-[4/4.5] w-full bg-[#0d0d0d] border-b border-white/[0.06] flex items-center justify-center p-4 overflow-hidden">
+      <div className="relative aspect-[4/4.5] w-full bg-black border-b border-white/[0.06] flex items-center justify-center p-4 overflow-hidden">
         {imgError ? (
           renderFallback()
         ) : (
           <>
             {!isLoaded && (
-              <div className="absolute inset-0 bg-[#121212] flex items-center justify-center">
+              <div className="absolute inset-0 bg-black flex items-center justify-center">
                 <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
               </div>
             )}
@@ -176,7 +176,7 @@ const PerfumeCard = ({
       </div>
 
       {/* Card Info Section */}
-      <div className="p-3.5 flex flex-col flex-1 justify-between bg-[#111111]">
+      <div className="p-3.5 flex flex-col flex-1 justify-between bg-black">
         <div>
           {/* Brand */}
           <div className="flex items-center justify-between gap-1 mb-1">
@@ -204,7 +204,7 @@ const PerfumeCard = ({
             {(perfume.seasonsList || []).slice(0, 1).map((season, idx) => (
               <span
                 key={idx}
-                className="text-[9.5px] font-medium tracking-wide px-2 py-0.5 rounded-md bg-[#181818] text-neutral-300 border border-white/10"
+                className="text-[9.5px] font-medium tracking-wide px-2 py-0.5 rounded-md bg-white/[0.06] text-neutral-300 border border-white/10"
               >
                 {season}
               </span>
@@ -212,7 +212,7 @@ const PerfumeCard = ({
             {(perfume.occasions || []).slice(0, 1).map((occ, idx) => (
               <span
                 key={idx}
-                className="text-[9.5px] font-medium tracking-wide px-2 py-0.5 rounded-md bg-[#141414] text-neutral-400 border border-white/5 truncate max-w-[120px]"
+                className="text-[9.5px] font-medium tracking-wide px-2 py-0.5 rounded-md bg-white/[0.03] text-neutral-400 border border-white/5 truncate max-w-[120px]"
               >
                 {occ}
               </span>

@@ -318,7 +318,7 @@ const VaultView = ({
     <div className="space-y-4 pb-20 animate-fade-in">
       {/* 1. Quick Filter Pills Carousel - Clean Editorial Style with Edge Darkness Fades */}
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-[#080808] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 px-1">
           {QUICK_FILTERS.map((filter) => {
             const isActive = activeQuickFilter === filter.id;
@@ -329,7 +329,7 @@ const VaultView = ({
                 className={`px-3 py-1.5 rounded-lg text-[10px] font-mono tracking-widest whitespace-nowrap transition-all active:scale-95 flex-shrink-0 ${
                   isActive
                     ? 'bg-white text-black font-semibold'
-                    : 'bg-[#121212] text-neutral-400 hover:text-white border border-white/[0.06]'
+                    : 'bg-black text-neutral-400 hover:text-white border border-white/10'
                 }`}
               >
                 {filter.label}
@@ -337,7 +337,7 @@ const VaultView = ({
             );
           })}
         </div>
-        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#080808] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
       </div>
 
       {/* 2. Structured Filter Controls Bar */}
@@ -410,7 +410,7 @@ const VaultView = ({
 
         {/* Expandable Custom Price Range Drawer */}
         {selectedPriceRange === 'custom' && (
-          <div className="p-3 bg-[#0d0d0d] border border-amber-400/25 rounded-xl space-y-2.5 shadow-lg animate-fadeIn">
+          <div className="p-3 bg-black border border-amber-400/30 rounded-xl space-y-2.5 shadow-lg animate-fadeIn">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-200">
                 <IndianRupeeIcon size={13} className="text-amber-400" />
@@ -445,7 +445,7 @@ const VaultView = ({
                     value={customMinPrice}
                     onChange={(e) => setCustomMinPrice(e.target.value)}
                     placeholder="Min (e.g. 1000)"
-                    className="w-full pl-6 pr-2.5 py-1.5 bg-[#141414] border border-white/10 rounded-lg text-xs text-white font-mono placeholder-neutral-500 focus:outline-none focus:border-amber-400/50"
+                    className="w-full pl-6 pr-2.5 py-1.5 bg-black border border-white/10 rounded-lg text-xs text-white font-mono placeholder-neutral-500 focus:outline-none focus:border-amber-400/50"
                   />
                 </div>
               </div>
@@ -462,7 +462,7 @@ const VaultView = ({
                     value={customMaxPrice}
                     onChange={(e) => setCustomMaxPrice(e.target.value)}
                     placeholder="Max (e.g. 3500)"
-                    className="w-full pl-6 pr-2.5 py-1.5 bg-[#141414] border border-white/10 rounded-lg text-xs text-white font-mono placeholder-neutral-500 focus:outline-none focus:border-amber-400/50"
+                    className="w-full pl-6 pr-2.5 py-1.5 bg-black border border-white/10 rounded-lg text-xs text-white font-mono placeholder-neutral-500 focus:outline-none focus:border-amber-400/50"
                   />
                 </div>
               </div>
@@ -490,7 +490,7 @@ const VaultView = ({
                     className={`px-2 py-0.5 rounded text-[10px] border transition active:scale-95 ${
                       isPresetActive
                         ? 'bg-amber-400 text-black border-amber-300 font-semibold'
-                        : 'bg-[#161616] hover:bg-[#202020] text-neutral-300 hover:text-white border-white/[0.08]'
+                        : 'bg-black hover:bg-white/10 text-neutral-300 hover:text-white border-white/10'
                     }`}
                   >
                     {p.label}
@@ -539,17 +539,17 @@ const VaultView = ({
               </span>
             )}
             {selectedSeason !== 'all' && (
-              <span className="px-2 py-0.5 bg-neutral-800 text-neutral-200 rounded text-[10px] font-medium uppercase tracking-wider whitespace-nowrap">
+              <span className="px-2 py-0.5 bg-white/10 text-neutral-200 border border-white/10 rounded text-[10px] font-medium uppercase tracking-wider whitespace-nowrap">
                 {selectedSeason}
               </span>
             )}
             {selectedOccasion !== 'all' && (
-              <span className="px-2 py-0.5 bg-neutral-800 text-neutral-200 rounded text-[10px] font-medium uppercase tracking-wider whitespace-nowrap">
+              <span className="px-2 py-0.5 bg-white/10 text-neutral-200 border border-white/10 rounded text-[10px] font-medium uppercase tracking-wider whitespace-nowrap">
                 {selectedOccasion}
               </span>
             )}
             {selectedBrand !== 'all' && (
-              <span className="px-2 py-0.5 bg-neutral-800 text-neutral-200 rounded text-[10px] font-medium uppercase tracking-wider whitespace-nowrap">
+              <span className="px-2 py-0.5 bg-white/10 text-neutral-200 border border-white/10 rounded text-[10px] font-medium uppercase tracking-wider whitespace-nowrap">
                 {selectedBrand}
               </span>
             )}
@@ -579,7 +579,7 @@ const VaultView = ({
           <div className="pt-2 flex flex-col items-center gap-2">
             <button
               onClick={handleResetFilters}
-              className="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-white rounded-lg text-xs font-semibold tracking-wide uppercase transition active:scale-95"
+              className="px-4 py-2 bg-white/15 hover:bg-white/25 border border-white/20 text-white rounded-lg text-xs font-semibold tracking-wide uppercase transition active:scale-95"
             >
               Clear Active Filters
             </button>

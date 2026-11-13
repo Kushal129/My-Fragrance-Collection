@@ -149,20 +149,20 @@ const PerfumeFormSheet = ({
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/85 backdrop-blur-sm transition-opacity">
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div className="relative w-full max-w-xl bg-[#0e0e0e] border-t sm:border border-white/10 sm:rounded-2xl rounded-t-2xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden z-10 animate-slide-up font-mono">
+      <div className="relative w-full max-w-xl bg-black border-t sm:border border-white/10 sm:rounded-2xl rounded-t-2xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden z-10 animate-slide-up font-mono">
         {/* Mobile Swipe Handle */}
         <div className="w-full flex justify-center pt-2 pb-1 sm:hidden">
           <div className="w-10 h-1 bg-neutral-700 rounded-full" />
         </div>
 
         {/* Header */}
-        <div className="px-5 py-3 border-b border-white/[0.08] flex items-center justify-between bg-[#0a0a0a]">
+        <div className="px-5 py-3 border-b border-white/[0.08] flex items-center justify-between bg-black">
           <h3 className="text-xs font-semibold text-white tracking-widest uppercase">
             {initialData ? 'EDIT PERFUME' : 'ADD NEW PERFUME'}
           </h3>
           <button
             onClick={onClose}
-            className="p-1 rounded bg-[#181818] text-neutral-400 hover:text-white"
+            className="p-1 rounded bg-black text-neutral-400 hover:text-white"
           >
             <XIcon size={16} animateOnHover={true} />
           </button>
@@ -181,7 +181,7 @@ const PerfumeFormSheet = ({
                 placeholder="Lattafa Khamrah"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full bg-[#181818] border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
+                className="w-full bg-black border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
               />
             </div>
 
@@ -195,7 +195,7 @@ const PerfumeFormSheet = ({
                 placeholder="Lattafa, Afnan, Creed"
                 value={formData.brand}
                 onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
-                className="w-full bg-[#181818] border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
+                className="w-full bg-black border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
               />
             </div>
           </div>
@@ -209,7 +209,7 @@ const PerfumeFormSheet = ({
                 placeholder="2499"
                 value={formData.price}
                 onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                className="w-full bg-[#181818] border border-white/10 rounded-lg px-3 py-2 text-white font-mono focus:outline-none focus:border-white/30"
+                className="w-full bg-black border border-white/10 rounded-lg px-3 py-2 text-white font-mono focus:outline-none focus:border-white/30"
               />
             </div>
 
@@ -220,7 +220,7 @@ const PerfumeFormSheet = ({
                 placeholder="100ml"
                 value={formData.volume}
                 onChange={(e) => setFormData({ ...formData, volume: e.target.value })}
-                className="w-full bg-[#181818] border border-white/10 rounded-lg px-3 py-2 text-white font-mono focus:outline-none focus:border-white/30"
+                className="w-full bg-black border border-white/10 rounded-lg px-3 py-2 text-white font-mono focus:outline-none focus:border-white/30"
               />
             </div>
 
@@ -268,7 +268,7 @@ const PerfumeFormSheet = ({
                 placeholder="Parfums de Marly Althaïr"
                 value={formData.inspiredBy}
                 onChange={(e) => setFormData({ ...formData, inspiredBy: e.target.value })}
-                className="w-full bg-[#181818] border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
+                className="w-full bg-black border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
               />
             </div>
           </div>
@@ -282,7 +282,7 @@ const PerfumeFormSheet = ({
               placeholder="https://..."
               value={formData.image}
               onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-              className="w-full bg-[#181818] border border-white/10 rounded-lg px-3 py-2 text-white font-mono focus:outline-none focus:border-white/30"
+              className="w-full bg-black border border-white/10 rounded-lg px-3 py-2 text-white font-mono focus:outline-none focus:border-white/30"
             />
           </div>
 
@@ -297,7 +297,7 @@ const PerfumeFormSheet = ({
                 placeholder="Summer, Monsoon, Winter"
                 value={formData.seasonsList}
                 onChange={(e) => setFormData({ ...formData, seasonsList: e.target.value })}
-                className="w-full bg-[#181818] border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
+                className="w-full bg-black border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
               />
             </div>
 
@@ -310,7 +310,7 @@ const PerfumeFormSheet = ({
                 placeholder="Office / Work, Party / Clubbing"
                 value={formData.occasions}
                 onChange={(e) => setFormData({ ...formData, occasions: e.target.value })}
-                className="w-full bg-[#181818] border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
+                className="w-full bg-black border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
               />
             </div>
           </div>
@@ -328,7 +328,7 @@ const PerfumeFormSheet = ({
                 placeholder="Bergamot, Lemon, Apple, Mint"
                 value={formData.topNotes}
                 onChange={(e) => setFormData({ ...formData, topNotes: e.target.value })}
-                className="w-full bg-[#181818] border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
+                className="w-full bg-black border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
               />
             </div>
 
@@ -339,7 +339,7 @@ const PerfumeFormSheet = ({
                 placeholder="Lavender, Cinnamon, Cardamom"
                 value={formData.middleNotes}
                 onChange={(e) => setFormData({ ...formData, middleNotes: e.target.value })}
-                className="w-full bg-[#181818] border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
+                className="w-full bg-black border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
               />
             </div>
 
@@ -350,7 +350,7 @@ const PerfumeFormSheet = ({
                 placeholder="Vanilla, Amber, Cedarwood, Musk"
                 value={formData.baseNotes}
                 onChange={(e) => setFormData({ ...formData, baseNotes: e.target.value })}
-                className="w-full bg-[#181818] border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
+                className="w-full bg-black border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
               />
             </div>
           </div>
@@ -365,7 +365,7 @@ const PerfumeFormSheet = ({
               placeholder="Describe how this perfume smells, projection, and performance..."
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="w-full bg-[#181818] border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
+              className="w-full bg-black border border-white/10 rounded-lg px-3 py-2 text-white font-sans focus:outline-none focus:border-white/30"
             />
           </div>
 
@@ -391,7 +391,7 @@ const PerfumeFormSheet = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="px-3.5 py-1.5 bg-[#181818] hover:bg-neutral-800 text-neutral-300 rounded-lg text-xs"
+                className="px-3.5 py-1.5 bg-black hover:bg-white/10 text-neutral-300 rounded-lg text-xs border border-white/10"
               >
                 CANCEL
               </button>

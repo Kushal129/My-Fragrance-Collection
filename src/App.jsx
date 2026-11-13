@@ -7,6 +7,7 @@ import PerfumeFormSheet from './components/PerfumeFormSheet.jsx';
 import MainWebsiteLoader from './components/MainWebsiteLoader.jsx';
 import NotFoundPage from './components/NotFoundPage.jsx';
 import ScentTasteMatcher from './components/ScentTasteMatcher.jsx';
+import ConcentrationGuidePage from './components/ConcentrationGuidePage.jsx';
 import {
   getStoredPerfumes,
   savePerfumes
@@ -55,6 +56,17 @@ function App() {
   });
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingPerfume, setEditingPerfume] = useState(null);
+  const [perfumeBeforeGuide, setPerfumeBeforeGuide] = useState(null);
+
+  // Navigate to Guide Page
+  const handleOpenGuide = () => {
+    if (selectedPerfume) {
+      setPerfumeBeforeGuide(selectedPerfume);
+    }
+    setSelectedPerfume(null);
+    setActiveTab('guide');
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  };
 
   // Scroll Restoration on mobile / back navigation
   const lastScrollYRef = useRef(0);
@@ -178,7 +190,7 @@ function App() {
 
 
   return (
-    <div className="min-h-screen bg-[#080808] text-neutral-100 flex flex-col font-sans selection:bg-neutral-800 selection:text-white">
+    <div className="min-h-screen bg-black text-neutral-100 flex flex-col font-sans selection:bg-white/20 selection:text-white">
       {/* Main Website Loader (Initial Visit & Preload - NEVER on 404 routes) */}
       {!isNotFound && isWebsiteLoading && (
         <MainWebsiteLoader
@@ -201,6 +213,7 @@ function App() {
         onBackToCollection={isNotFound ? handleReturnHome : handleBackToCollection}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        onOpenGuide={handleOpenGuide}
       />
 
       {/* Main Content Area */}
@@ -216,11 +229,31 @@ function App() {
                 perfume={selectedPerfume}
                 onBack={handleBackToCollection}
                 onEdit={handleEditFromDetail}
+                onOpenGuide={handleOpenGuide}
               />
             )}
 
             {/* Keep Main Views Mounted so loaded items (visibleCount), filter states, and scroll heights are strictly preserved */}
             <div className={selectedPerfume ? 'hidden' : 'block'}>
+              {/* Separate Full Page: Fragrance Concentrations Guide */}
+              {activeTab === 'guide' && (
+                <ConcentrationGuidePage
+                  perfumes={perfumes}
+                  returnPerfume={perfumeBeforeGuide}
+                  onBack={() => {
+                    if (perfumeBeforeGuide) {
+                      setSelectedPerfume(perfumeBeforeGuide);
+                      setPerfumeBeforeGuide(null);
+                      setActiveTab('collection');
+                    } else {
+                      setActiveTab('collection');
+                    }
+                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                  }}
+                  onSelectPerfume={handleSelectPerfume}
+                />
+              )}
+
               <div className={activeTab === 'test' ? 'block' : 'hidden'}>
                 <ScentTasteMatcher
                   perfumes={perfumes}
@@ -258,7 +291,7 @@ function App() {
       {showBackToTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 right-5 z-40 p-2.5 rounded-full bg-[#161616]/90 hover:bg-white text-neutral-300 hover:text-black border border-white/15 hover:border-white shadow-2xl backdrop-blur-md transition-all duration-300 active:scale-90 group"
+          className="fixed bottom-6 right-5 z-40 p-2.5 rounded-full bg-black/90 hover:bg-white text-neutral-300 hover:text-black border border-white/20 hover:border-white shadow-2xl backdrop-blur-md transition-all duration-300 active:scale-90 group"
           title="Back to Top"
           aria-label="Back to top"
         >

@@ -258,9 +258,9 @@ export const getNoteColor = (noteName = '') => {
 
   // Neutral / Musk / Cashmeran / Ambrox / Clean Molecules
   return {
-    bg: 'bg-neutral-800/60',
+    bg: 'bg-white/10',
     text: 'text-neutral-200',
-    border: 'border-neutral-700/40',
+    border: 'border-white/15',
     dot: 'bg-neutral-400'
   };
 };
@@ -269,7 +269,8 @@ const PerfumeDetailPage = ({
   perfume,
   onBack,
   onLogWear,
-  onEdit
+  onEdit,
+  onOpenGuide
 }) => {
   const [imgError, setImgError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -350,8 +351,8 @@ const PerfumeDetailPage = ({
 
   // Luxury Fallback Plaque when image is unavailable
   const renderFallback = () => (
-    <div className="w-full h-80 flex flex-col items-center justify-center p-6 text-center bg-[#111111] rounded-2xl border border-white/5 select-none">
-      <div className="w-16 h-20 border border-white/20 rounded-t-sm rounded-b-md flex flex-col items-center justify-center p-2 relative mb-4 bg-[#0d0d0d]">
+    <div className="w-full h-80 flex flex-col items-center justify-center p-6 text-center bg-black rounded-2xl border border-white/10 select-none">
+      <div className="w-16 h-20 border border-white/20 rounded-t-sm rounded-b-md flex flex-col items-center justify-center p-2 relative mb-4 bg-black">
         <div className="w-4 h-2 bg-neutral-600 rounded-t -mt-3 mb-2" />
         <DropletIcon size={20} animateOnHover={false} className="text-neutral-400" />
       </div>
@@ -365,21 +366,21 @@ const PerfumeDetailPage = ({
   );
 
   return (
-    <div className="min-h-screen bg-[#080808] text-neutral-100 pb-20 animate-fade-in relative">
+    <div className="min-h-screen bg-black text-neutral-100 pb-20 animate-fade-in relative">
       {/* Toast Notification when Copied / Shared */}
       {copied && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#161616] text-white border border-emerald-500/40 px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 text-xs font-semibold animate-fadeIn backdrop-blur-md">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-black text-white border border-emerald-500/40 px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 text-xs font-semibold animate-fadeIn backdrop-blur-md">
           <CheckIcon size={14} className="text-emerald-400" />
           <span>Perfume link copied to clipboard!</span>
         </div>
       )}
 
       {/* Top Navigation Bar */}
-      <div className="sticky top-0 z-30 bg-[#080808]/95 backdrop-blur-md border-b border-white/[0.08] px-4 py-3">
+      <div className="sticky top-0 z-30 bg-black/95 backdrop-blur-md border-b border-white/10 px-4 py-3">
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
           <button
             onClick={onBack}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#141414] hover:bg-[#1f1f1f] border border-white/[0.08] text-neutral-300 hover:text-white text-xs font-medium transition active:scale-95 group"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-black hover:bg-white/10 border border-white/10 text-neutral-300 hover:text-white text-xs font-medium transition active:scale-95 group"
           >
             <ArrowLeftIcon size={15} animateOnHover={true} className="group-hover:-translate-x-0.5 transition-transform" />
             <span className="hidden sm:inline">Back to Collection</span>
@@ -392,7 +393,7 @@ const PerfumeDetailPage = ({
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium transition active:scale-95 ${
                 copied
                   ? 'bg-emerald-500/15 border-emerald-500/30 text-emerald-400'
-                  : 'bg-[#141414] hover:bg-[#1f1f1f] border-white/[0.08] text-neutral-300 hover:text-white'
+                  : 'bg-black hover:bg-white/10 border-white/10 text-neutral-300 hover:text-white'
               }`}
               title="Share Fragrance"
             >
@@ -407,7 +408,7 @@ const PerfumeDetailPage = ({
             {onEdit && (
               <button
                 onClick={() => onEdit(perfume)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#141414] hover:bg-[#1f1f1f] border border-white/[0.08] text-neutral-400 hover:text-white text-xs transition active:scale-95"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black hover:bg-white/10 border border-white/10 text-neutral-400 hover:text-white text-xs transition active:scale-95"
               >
                 <SquarePenIcon size={14} animateOnHover={true} />
                 <span className="hidden sm:inline">Edit</span>
@@ -423,13 +424,13 @@ const PerfumeDetailPage = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Studio Bottle Showcase */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="relative aspect-square sm:aspect-[4/4.5] w-full rounded-2xl bg-[#0e0e0e] border border-white/[0.08] p-6 sm:p-8 flex items-center justify-center overflow-hidden shadow-2xl">
+            <div className="relative aspect-square sm:aspect-[4/4.5] w-full rounded-2xl bg-black border border-white/10 p-6 sm:p-8 flex items-center justify-center overflow-hidden shadow-2xl">
               {imgError ? (
                 renderFallback()
               ) : (
                 <>
                   {!isLoaded && (
-                    <div className="absolute inset-0 bg-[#0e0e0e] animate-pulse" />
+                    <div className="absolute inset-0 bg-black animate-pulse" />
                   )}
                   <img
                     src={perfume.image}
@@ -448,9 +449,15 @@ const PerfumeDetailPage = ({
 
               {/* Concentration Tag Top-Left */}
               <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5">
-                <span className="px-2.5 py-1 text-[11px] font-semibold tracking-wider uppercase bg-black/80 text-white border border-white/15 rounded-md backdrop-blur-sm">
-                  {perfume.concentration || 'EDP'}
-                </span>
+                <button
+                  onClick={onOpenGuide}
+                  type="button"
+                  title="Click to view Concentration Guide (EDT vs EDP vs Extrait oil levels)"
+                  className="px-2.5 py-1 text-[11px] font-semibold tracking-wider uppercase bg-black/85 hover:bg-neutral-900 text-amber-300 hover:text-white border border-amber-400/30 hover:border-amber-400 rounded-md backdrop-blur-sm transition flex items-center gap-1.5 active:scale-95 shadow-sm"
+                >
+                  <span>{perfume.concentration || 'EDP'}</span>
+                  <span className="w-3.5 h-3.5 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/40 flex items-center justify-center font-serif italic text-[9px] font-bold">i</span>
+                </button>
                 <span className="px-2 py-1 text-[11px] font-medium tracking-wide bg-neutral-900/80 text-neutral-300 border border-white/10 rounded-md backdrop-blur-sm">
                   {perfume.volume || '100ml'}
                 </span>
@@ -476,7 +483,7 @@ const PerfumeDetailPage = ({
               </h1>
 
               {perfume.inspiredBy && (
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-neutral-900 border border-white/10 text-xs text-neutral-300">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black border border-white/10 text-xs text-neutral-300">
                   <span className="text-[10px] uppercase font-semibold text-neutral-400 tracking-wider">Inspired By:</span>
                   <span className="font-medium text-white">{perfume.inspiredBy}</span>
                 </div>
@@ -484,7 +491,7 @@ const PerfumeDetailPage = ({
             </div>
 
             {/* Price */}
-            <div className="p-4 rounded-xl bg-[#121212] border border-white/[0.08] flex items-center justify-between gap-4 flex-wrap">
+            <div className="p-4 rounded-xl bg-black border border-white/10 flex items-center justify-between gap-4 flex-wrap">
               <div>
                 <span className="text-[10px] text-neutral-400 uppercase tracking-widest block">
                   Price
@@ -494,7 +501,7 @@ const PerfumeDetailPage = ({
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 text-xs text-neutral-400 bg-black/40 px-3 py-1.5 rounded-lg border border-white/5">
+              <div className="flex items-center gap-2 text-xs text-neutral-400 bg-white/[0.05] px-3 py-1.5 rounded-lg border border-white/10">
                 <span className="text-neutral-500 uppercase tracking-wider text-[10px]">Bottle:</span>
                 <span className="font-medium text-neutral-300">{perfume.volume || '100ml'}</span>
                 <span className="text-neutral-600">•</span>
@@ -512,7 +519,7 @@ const PerfumeDetailPage = ({
                   {(perfume.seasonsList || []).map((season, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 rounded-lg bg-[#181818] text-white text-xs font-medium border border-white/10"
+                      className="px-3 py-1 rounded-lg bg-white/10 text-white text-xs font-medium border border-white/10"
                     >
                       {season}
                     </span>
@@ -528,7 +535,7 @@ const PerfumeDetailPage = ({
                   {(perfume.occasions || []).map((occ, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 rounded-lg bg-[#141414] text-neutral-300 text-xs font-medium border border-white/[0.06]"
+                      className="px-3 py-1 rounded-lg bg-white/[0.05] text-neutral-300 text-xs font-medium border border-white/10"
                     >
                       {occ}
                     </span>
@@ -539,7 +546,7 @@ const PerfumeDetailPage = ({
 
             {/* Description */}
             {perfume.description && (
-              <div className="p-4 rounded-xl bg-[#111111] border border-white/[0.06] space-y-1.5">
+              <div className="p-4 rounded-xl bg-black border border-white/10 space-y-1.5">
                 <span className="text-[10px] font-semibold tracking-widest uppercase text-neutral-400">
                   About This Perfume
                 </span>
@@ -552,7 +559,7 @@ const PerfumeDetailPage = ({
         </div>
 
         {/* SECTION 2: Fragrance Notes Pyramid */}
-        <div className="rounded-2xl bg-[#0f0f0f] border border-white/[0.08] p-5 sm:p-7 space-y-6">
+        <div className="rounded-2xl bg-black border border-white/10 p-5 sm:p-7 space-y-6">
           <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
             <div>
               <h2 className="text-lg font-bold text-white tracking-tight">
@@ -569,7 +576,7 @@ const PerfumeDetailPage = ({
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Phase 1: Top Notes (Opening) */}
-            <div className="p-4 rounded-xl bg-[#141414] border border-white/[0.06] space-y-3">
+            <div className="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-3">
               <div className="flex items-center justify-between border-b border-white/5 pb-2">
                 <span className="text-xs font-semibold text-white tracking-wider uppercase">
                   Top Notes
@@ -600,7 +607,7 @@ const PerfumeDetailPage = ({
             </div>
 
             {/* Phase 2: Heart Notes (Core) */}
-            <div className="p-4 rounded-xl bg-[#141414] border border-white/[0.06] space-y-3">
+            <div className="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-3">
               <div className="flex items-center justify-between border-b border-white/5 pb-2">
                 <span className="text-xs font-semibold text-white tracking-wider uppercase">
                   Heart Notes
@@ -631,7 +638,7 @@ const PerfumeDetailPage = ({
             </div>
 
             {/* Phase 3: Base Notes (Drydown) */}
-            <div className="p-4 rounded-xl bg-[#141414] border border-white/[0.06] space-y-3">
+            <div className="p-4 rounded-xl bg-white/[0.02] border border-white/10 space-y-3">
               <div className="flex items-center justify-between border-b border-white/5 pb-2">
                 <span className="text-xs font-semibold text-white tracking-wider uppercase">
                   Base Notes
@@ -666,7 +673,7 @@ const PerfumeDetailPage = ({
         {/* SECTION 3: Main Accords & Performance Radar */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Main Accords Bar Chart */}
-          <div className="p-5 rounded-2xl bg-[#0f0f0f] border border-white/[0.08] space-y-4">
+          <div className="p-5 rounded-2xl bg-black border border-white/10 space-y-4">
             <h3 className="text-sm font-bold text-white tracking-tight">
               Dominant Scent Accords
             </h3>
@@ -678,7 +685,7 @@ const PerfumeDetailPage = ({
                     <span className="capitalize text-neutral-200">{accord.name}</span>
                     <span className="text-neutral-400">{accord.percent}%</span>
                   </div>
-                  <div className="w-full h-2 rounded-full overflow-hidden bg-[#181818]">
+                  <div className="w-full h-2 rounded-full overflow-hidden bg-white/10">
                     <div
                       className="h-full rounded-full transition-all duration-700"
                       style={{
@@ -693,7 +700,7 @@ const PerfumeDetailPage = ({
           </div>
 
           {/* Performance & Seasonal Breakdown */}
-          <div className="p-5 rounded-2xl bg-[#0f0f0f] border border-white/[0.08] space-y-4">
+          <div className="p-5 rounded-2xl bg-black border border-white/10 space-y-4">
             <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
               <h3 className="text-sm font-bold text-white tracking-tight">
                 Performance & Best Time to Wear
@@ -701,10 +708,10 @@ const PerfumeDetailPage = ({
               <span className="text-[10px] text-neutral-400 font-medium">Community Verified</span>
             </div>
 
-            {/* Longevity & Sillage Cards - Fully responsive, stacking cleanly on small mobile */}
+            {/* Longevity & Sillage Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-              <div className="p-3 sm:p-3.5 bg-[#141414] rounded-xl border border-white/[0.06] flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-[#1a1a1a] border border-white/10 flex items-center justify-center flex-shrink-0 text-neutral-300">
+              <div className="p-3 sm:p-3.5 bg-white/[0.03] rounded-xl border border-white/10 flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-black border border-white/10 flex items-center justify-center flex-shrink-0 text-neutral-300">
                   <ClockIcon size={18} animateOnHover={true} />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -717,8 +724,8 @@ const PerfumeDetailPage = ({
                 </div>
               </div>
 
-              <div className="p-3 sm:p-3.5 bg-[#141414] rounded-xl border border-white/[0.06] flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-[#1a1a1a] border border-white/10 flex items-center justify-center flex-shrink-0 text-neutral-300">
+              <div className="p-3 sm:p-3.5 bg-white/[0.03] rounded-xl border border-white/10 flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-black border border-white/10 flex items-center justify-center flex-shrink-0 text-neutral-300">
                   <GaugeIcon size={18} animateOnHover={true} />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -772,7 +779,7 @@ const PerfumeDetailPage = ({
                   return (
                     <div
                       key={idx}
-                      className="p-2.5 bg-[#141414] rounded-xl border border-white/[0.06] space-y-1.5"
+                      className="p-2.5 bg-white/[0.03] rounded-xl border border-white/10 space-y-1.5"
                     >
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-400 flex items-center gap-1">
@@ -781,7 +788,7 @@ const PerfumeDetailPage = ({
                         </span>
                         <span className={`text-xs font-bold ${s.textColor}`}>{s.val}%</span>
                       </div>
-                      <div className="w-full h-1.5 rounded-full bg-[#202020] overflow-hidden">
+                      <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
                         <div
                           className={`h-full ${s.color} rounded-full transition-all duration-500`}
                           style={{ width: `${s.val}%` }}
@@ -794,7 +801,7 @@ const PerfumeDetailPage = ({
             </div>
 
             {/* Day / Night Breakdown */}
-            <div className="p-3 bg-[#141414] rounded-xl border border-white/[0.06] space-y-2">
+            <div className="p-3 bg-white/[0.03] rounded-xl border border-white/10 space-y-2">
               <div className="flex items-center justify-between text-xs">
                 <span className="flex items-center gap-1.5 text-neutral-300 font-medium">
                   <SunIcon size={14} animateOnHover={true} className="text-amber-400" />
@@ -805,7 +812,7 @@ const PerfumeDetailPage = ({
                   Nighttime: <strong className="text-white font-semibold">{perfume.seasons?.night ?? 50}%</strong>
                 </span>
               </div>
-              <div className="w-full h-2 rounded-full overflow-hidden flex bg-[#1e1e1e]">
+              <div className="w-full h-2 rounded-full overflow-hidden flex bg-white/10">
                 <div
                   style={{ width: `${perfume.seasons?.day ?? 50}%` }}
                   className="h-full bg-gradient-to-r from-amber-400 to-amber-500 transition-all duration-500"
@@ -822,7 +829,7 @@ const PerfumeDetailPage = ({
         </div>
 
         {/* SECTION 4: Direct Purchase / Retailer Links */}
-        <div className="p-5 rounded-2xl bg-[#0f0f0f] border border-white/[0.08] space-y-3">
+        <div className="p-5 rounded-2xl bg-black border border-white/10 space-y-3">
           <h3 className="text-sm font-bold text-white tracking-tight">
             Verified Distributor & Purchase Links
           </h3>
@@ -835,7 +842,7 @@ const PerfumeDetailPage = ({
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 bg-[#141414] hover:bg-[#1c1c1c] border border-white/[0.08] hover:border-white/20 rounded-xl transition group active:scale-98"
+                  className="flex items-center justify-between p-3.5 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 rounded-xl transition group active:scale-98"
                 >
                   <div>
                     <div className="text-xs font-semibold text-white group-hover:underline">
@@ -850,7 +857,7 @@ const PerfumeDetailPage = ({
               ))}
             </div>
           ) : (
-            <div className="p-4 text-center text-xs text-neutral-500 bg-[#141414] rounded-xl border border-white/5">
+            <div className="p-4 text-center text-xs text-neutral-500 bg-black rounded-xl border border-white/10">
               No purchase link currently archived for this bottle.
             </div>
           )}

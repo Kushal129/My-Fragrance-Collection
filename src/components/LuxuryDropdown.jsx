@@ -70,8 +70,8 @@ const LuxuryDropdown = ({
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full flex items-center justify-between gap-2.5 px-3 py-2 rounded-xl text-xs font-medium transition-all duration-200 border outline-none ${
           isOpen
-            ? 'bg-[#181818] border-white/30 text-white shadow-[0_0_15px_rgba(255,255,255,0.06)]'
-            : 'bg-[#121212] hover:bg-[#161616] border-white/10 text-neutral-200 hover:border-white/20'
+            ? 'bg-black border-white/40 text-white shadow-[0_0_15px_rgba(255,255,255,0.06)]'
+            : 'bg-black hover:bg-white/[0.06] border-white/10 text-neutral-200 hover:border-white/20'
         }`}
       >
         <div className="flex items-center gap-2 truncate">
@@ -97,7 +97,7 @@ const LuxuryDropdown = ({
 
       {/* Luxury Glassmorphic Dropdown Menu */}
       {isOpen && (
-        <div className="absolute left-0 right-0 sm:right-auto sm:min-w-[220px] max-w-[320px] top-full mt-1.5 z-50 rounded-xl bg-[#141414]/95 backdrop-blur-xl border border-white/15 shadow-2xl p-1.5 space-y-1 animate-fade-in overflow-hidden">
+        <div className="absolute left-0 right-0 sm:right-auto sm:min-w-[220px] max-w-[320px] top-full mt-1.5 z-50 rounded-xl bg-black/95 backdrop-blur-xl border border-white/15 shadow-2xl p-1.5 space-y-1 animate-fade-in overflow-hidden">
           {/* Optional Quick Search in Dropdown */}
           {searchable && (
             <div className="px-1.5 pt-1 pb-1.5 border-b border-white/[0.08]">
